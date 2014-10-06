@@ -1,29 +1,29 @@
 # Programs
-alias google-chrome='open -a "Sublime Text"'
-alias subl='open -a "Sublime Text"'
+alias google-chrome='open -a "Google Chrome"'
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
 # Enable color support of ls and also add handy aliases
 if [ -x /usr/local/bin/gdircolors ]; then
-    test -r ~/.dircolors && eval "$(gdircolors -b ~/.dircolors)" || eval "$(gdircolors -b)"
-    alias ls='gls --color=auto'
-    alias dir='gdir --color=auto'
-    alias vdir='gvdir --color=auto'
+	test -r ~/.dircolors && eval "$(gdircolors -b ~/.dircolors)" || eval "$(gdircolors -b)"
+	alias ls='gls --color=auto'
+	alias dir='gdir --color=auto'
+	alias vdir='gvdir --color=auto'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
 fi
 
 # More ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
-alias l='ls -CF'
+alias l="ls -F1"
+alias lg="ls -go"
 
 # List only directories
 alias lsd='ls -l | grep "^d"'
 
 # `cat` with beautiful colors. requires Pygments installed.
-#                              sudo easy_install Pygments
 alias c='pygmentize -O style=default -f console256 -g'
 
 
@@ -50,6 +50,9 @@ alias flush="dscacheutil -flushcache"
 # Trim new lines and copy to clipboard
 alias trimcopy="tr -d '\n' | pbcopy"
 
+# Copy current dir path
+alias pwdcopy="pwd | tr -d '\n' | pbcopy"
+
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
@@ -73,3 +76,14 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
 # Hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# Trash aliases (install trash first)
+alias trash_tex='trash -fv *.log *.aux *.nav *.out *.snm *.toc *.vrb *.bbl *.blg *.dvi *.synctex.gz *.fdb_latexmk' # use rvf for "rm"
+alias trash_tex_full='trash_tex; trash *.pdf'
+alias trash_java_class='trash -fv *.class' # use rvf for "rm"
+alias trash_vimswp="trash ~/.vim/vimswap/* ~/.vim/vimswap/.*"
+
+# updatedb for mac
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+	alias updatedb="pushd .; cd ~/; sudo /usr/libexec/locate.updatedb; popd"
+fi
