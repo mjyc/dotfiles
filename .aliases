@@ -1,6 +1,8 @@
 # Programs
-alias google-chrome='open -a "Google Chrome"'
-alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+	alias google-chrome='open -a "Google Chrome"'
+	alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+fi
 
 # Enable color support of ls and also add handy aliases
 if [ -x /usr/local/bin/gdircolors ]; then
