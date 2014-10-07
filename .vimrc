@@ -1,21 +1,25 @@
-" Pathogen setups
+" Pathogen
 filetype off
 execute pathogen#infect()
 execute pathogen#helptags()
 syntax on
 filetype indent plugin on
 
+" Color theme
+set background=dark
+colorscheme badwolf
+
 " Mac
 if has ("gui_macvim")
   set macmeta
 endif
 
-" Syntastic setups
+" Syntastic
 let g:syntastic_javascript_checkers = ['jslint']
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
 
-" Multiple-cursors setup
+" Multiple-cursors
 let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
 
@@ -25,13 +29,13 @@ set directory=~/.vim/swaps
 set undodir=~/.vim/undo
 
 
-" Setups
+" Bunch of stuff...
 set autochdir
 set autoindent " Always set autoindenting on
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode
 set clipboard=unnamed " Using mouse 3rd button click
 set copyindent " Copy the previous indentation on autoindenting
-" set cursorline " Highlight current line
+set cursorline " Highlight current line
 " set diffopt=filler " Add vertical spaces to keep right and left aligned
 set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
 set foldlevel=99
@@ -63,8 +67,9 @@ if has('unnamedplus')
 endif
 
 
-"" KEY BINDING
-" efficient command
+"" KEY BINDINGS
+
+" Efficient command
 nnoremap ; :
 nnoremap <C-@> :set paste!<CR>
 " nnoremap <C-@> :set nopaste<CR> " <C-@> == <C-Space>
@@ -90,28 +95,27 @@ map <leader>o :sp<cr>
 map <leader>e :vsp<cr>
 
 " Search
-" nmap <silent> ,/ :nohlsearch<CR>
 nmap <silent> kl :nohlsearch<CR>
 
 " Tab
-" nnoremap ,n :tabprevious<CR>
-" nnoremap ,p :tabnext<CR>
+" nnoremap <leader>n :tabprevious<CR>
+" nnoremap <leader>p :tabnext<CR>
 map <S-h> :tabprevious<CR>
 map <S-l> :tabnext<CR>
-" nnoremap ,t :tabnew<CR>
-" nnoremap ,d :tabclose<CR>
+" nnoremap <leader>t :tabnew<CR>
+" nnoremap <leader>d :tabclose<CR>
 
-" buffer
+" Buffer
 map <S-j> :bp<CR>
 map <S-k> :bn<CR>
 
-" movements
+" Movements
 map <C-l> $
 map <C-h> ^
 map <C-j> 10j
 map <C-k> 10k
 
-" control
+" Control
 " imap jj <Esc>
 imap kj <Esc>
 " vnoremap <C-c> <Esc>
@@ -156,21 +160,45 @@ noremap <leader>ss :call StripWhitespace ()<CR>
 " Toggle folds (<Space>)
 nnoremap <silent> <space> :exe 'silent! normal! '.((foldclosed('.')>0)? 'zMzx' : 'zc')<CR>
 
+" Better mark jumping (line + col)
+nnoremap ' `
 
-" NERDTree setup
+" Requires NERDTree
 " map <F2> :NERDTreeToggle<CR>
 map <leader>n :NERDTreeToggle<CR>
-
 
 " Highlight setup
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>:set number!<CR>
 set list!
 " Use the same symbols as TextMate for tabstops and EOLs
-           set listchars=tab:▸\ ,eol:¬
-"Invisible character colors
+set listchars=tab:▸\ ,eol:¬
+" Invisible character colors
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
+
+" Linebreak setups
+noremap <silent> <Leader>w :call ToggleWrap()<CR>
+function ToggleWrap()
+  if &wrap
+    echo "Wrap OFF"
+    setlocal nowrap
+    unmap k
+    unmap j
+    unmap 0
+    unmap ^
+    unmap $
+  else
+    echo "Wrap ON"
+    setlocal wrap
+    map <silent> k gk
+    map <silent> j gj
+    map <silent> 0 g0
+    map <silent> ^ g^
+    map <silent> $ g$
+  endif
+endfunction
+:silent call ToggleWrap()
 
 
 " Detect file changes
@@ -199,26 +227,4 @@ au BufRead,BufNewFile *.md set filetype=text
 au BufRead,BufNewFile *.json set ft=json syntax=javascript
 
 
-" Linebreak setups
-noremap <silent> <Leader>w :call ToggleWrap()<CR>
-function ToggleWrap()
-  if &wrap
-    echo "Wrap OFF"
-    setlocal nowrap
-    unmap k
-    unmap j
-    unmap 0
-    unmap ^
-    unmap $
-  else
-    echo "Wrap ON"
-    setlocal wrap
-    map <silent> k gk
-    map <silent> j gj
-    map <silent> 0 g0
-    map <silent> ^ g^
-    map <silent> $ g$
-  endif
-endfunction
-:silent call ToggleWrap()
 
