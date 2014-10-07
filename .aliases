@@ -2,6 +2,11 @@
 if [[ "$OSTYPE" =~ ^darwin ]]; then
 	alias google-chrome='open -a "Google Chrome"'
 	alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+else
+	# Simulates pbcopy. requires xclip installed.
+	alias pbcopy='xclip -selection clipboard'
+	alias pbpaste='xclip -selection clipboard -o'
+	alias google-chrome='chromium-browser'
 fi
 
 # Enable color support of ls and also add handy aliases
