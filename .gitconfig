@@ -1,0 +1,52 @@
+[user]
+	name = Michael Jae-Yoon Chung
+	email = mjyc@cs.washington.edu
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+
+	c = commit -am
+	up = pull
+	p = push
+	s = status -s
+	df = diff --color --color-words --abbrev
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+[core]
+	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
+[color]
+	ui = always
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[help]
+	autocorrect = 1
+[merge]
+	log = true
+[push]
+	default = simple
+[url "git@github.com:"]
+	insteadOf = "gh:"
+	pushInsteadOf = "github:"
+	pushInsteadOf = "git://github.com/"
+    pushInsteadOf = "https://github.com/"
+[url "git://github.com/"]
+	insteadOf = "github:"
+
+
