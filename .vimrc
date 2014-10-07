@@ -6,8 +6,8 @@ syntax on
 filetype indent plugin on
 
 " Color theme
-set background=dark
-colorscheme badwolf
+" set background=dark
+" colorscheme badwolf
 
 " Mac
 if has ("gui_macvim")
