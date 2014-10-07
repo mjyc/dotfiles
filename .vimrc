@@ -31,7 +31,7 @@ set autoindent " Always set autoindenting on
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode
 set clipboard=unnamed " Using mouse 3rd button click
 set copyindent " Copy the previous indentation on autoindenting
-set cursorline " Highlight current line
+" set cursorline " Highlight current line
 " set diffopt=filler " Add vertical spaces to keep right and left aligned
 set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
 set foldlevel=99
@@ -181,7 +181,6 @@ autocmd FileChangedShell * echo "Warning: File changed on disk"
 if has("autocmd")
   " Enable file type detection
   filetype on
-
   "autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType cmake setlocal ts=4 sts=2 sw=2 expandtab
   autocmd FileType html setlocal ts=4 sts=4 sw=4 noexpandtab
@@ -189,17 +188,18 @@ if has("autocmd")
   "autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
   autocmd FileType python setlocal ts=8 sts=4 sw=4 expandtab
   "autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
   " ROS Configuration
   autocmd BufRead,BufNewFile *.launch setfiletype roslaunch
-
-  " commentary setup
+  " Commentary setup
   autocmd FileType cmake set commentstring=#\ %s
 endif
+" MD
 au BufRead,BufNewFile *.md set filetype=text
+" JSON
+au BufRead,BufNewFile *.json set ft=json syntax=javascript
 
 
-" LINEBREAK SETUPS
+" Linebreak setups
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
 function ToggleWrap()
   if &wrap
