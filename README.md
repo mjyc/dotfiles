@@ -46,7 +46,6 @@ My personal notes about setting up freshly installed Ubuntu are at `.ubuntu`. Yo
 * `install-deps.sh` - random apps i need installed
 * `.osx` - run on a fresh osx machine
 * `.ubuntu` - run on a fresh ubuntu machine
-* `.brew` - homebrew initialization
 
 #### git
 * `.git`
@@ -57,6 +56,7 @@ My personal notes about setting up freshly installed Ubuntu are at `.ubuntu`. Yo
 #### other
 * `Rosfile` - example Ros setup, do something similar in `.extra`
 * `BitbucketSsh` - example bitbucket shs setup, do something similar in `.extra`
+* `BrewFile` - do `brew bundle Brewfile`
 
 ## Installation
 
