@@ -39,8 +39,6 @@
 	autocorrect = 1
 [merge]
 	log = true
-[push]
-	default = simple
 [url "git@github.com:"]
 	insteadOf = "gh:"
 	pushInsteadOf = "github:"
