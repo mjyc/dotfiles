@@ -6,6 +6,7 @@ else
 	# Simulates pbcopy. requires xclip installed.
 	alias pbcopy='xclip -selection clipboard'
 	alias pbpaste='xclip -selection clipboard -o'
+	alias trash='trash-put'
 	alias google-chrome='chromium-browser'
 fi
 
@@ -81,16 +82,13 @@ alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
 
 # Hide/show all desktop icons (useful when presenting)
-alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+	alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+	alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+fi
 
 # Trash aliases (install trash first)
-alias trash_tex='trash -fv *.log *.aux *.nav *.out *.snm *.toc *.vrb *.bbl *.blg *.dvi *.synctex.gz *.fdb_latexmk' # use rvf for "rm"
+alias trash_tex='trash *.log *.aux *.nav *.out *.snm *.toc *.vrb *.bbl *.blg *.dvi *.synctex.gz *.fdb_latexmk' # use rvf for "rm"
 alias trash_tex_full='trash_tex; trash *.pdf'
 alias trash_java_class='trash -fv *.class' # use rvf for "rm"
-alias trash_vimswp="trash ~/.vim/vimswap/* ~/.vim/vimswap/.*"
-
-# updatedb for mac
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-	alias updatedb="pushd .; cd ~/; sudo /usr/libexec/locate.updatedb; popd"
-fi
+alias trash_vimswp="trash ~/.vim/swaps; mkdir ~/.vim/swaps"
