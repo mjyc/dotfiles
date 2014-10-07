@@ -11,7 +11,7 @@ else
 fi
 
 # Enable color support of ls and also add handy aliases
-if [ -x /usr/local/bin/gdircolors ]; then
+if [ -x /usr/local/bin/gdircolors ] || [ -x /usr/bin/dircolors ]; then
 	test -r ~/.dircolors && eval "$(gdircolors -b ~/.dircolors)" || eval "$(gdircolors -b)"
 	if [[ "$OSTYPE" =~ ^darwin ]]; then
 		alias ls='gls --color=auto'
@@ -22,7 +22,6 @@ if [ -x /usr/local/bin/gdircolors ]; then
 		alias dir='dir --color=auto'
 		alias vdir='vdir --color=auto'
 	fi
-
 
 	alias grep='grep --color=auto'
 	alias fgrep='fgrep --color=auto'
