@@ -3,10 +3,16 @@
 
 # https://github.com/jamiew/git-friendly
 # the `push` command which copies the github compare URL to my clipboard is heaven
-bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+	bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
+else
+	sudo bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
+fi
 
 # homebrew!
-ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go/install)
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+	ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go/install)
+fi
 
 
 
@@ -30,8 +36,12 @@ chmod +x ~/code/z/z.sh
 # then you grab public URL and send off your video message in a heartbeat.
 
 
-# # for the c alias (syntax highlighted cat)
-# sudo easy_install Pygments
+# for the c alias (syntax highlighted cat)
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+	sudo easy_install Pygments
+else
+	sudo apt-get install python-pygments
+fi
 
 
 # chrome canary as default

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# ~/.ubuntu
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# Basics
+sudo apt-get install ssh synaptic vim gconf-editor xclip trash-cli
+
+# At this point, I like to
+# 1. install programs I use daily, such as Chromium, Dropbox, Skype, Gnote, meshlab, qtcreator
+# 2. setup keyboard shortcuts (google-chrome) and set keyboard delay time to smallest possible
+# 3. install Korean language pack
