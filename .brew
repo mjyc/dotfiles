@@ -39,6 +39,7 @@ brew install pv
 brew install rename
 brew install tree
 brew install trash
+brew install reattach-to-user-namespace # must before tmux
 brew install tmux
 brew install ssh-copy-id
 
