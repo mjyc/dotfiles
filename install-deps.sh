@@ -1,4 +1,5 @@
 # up to you (me) if you want to run this as a file or copy paste at your leisure
+# do `bash install-deps.sh`
 
 
 # https://github.com/jamiew/git-friendly
@@ -11,20 +12,19 @@ fi
 
 # homebrew!
 if [[ "$OSTYPE" =~ ^darwin ]]; then
-	ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go/install)
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
-
 
 
 # https://github.com/rupa/z
 # z, oh how i love you
+if [ ! -d ~/code ]; then mkdir ~/code; fi;
 cd ~/code
 git clone https://github.com/rupa/z.git
 chmod +x ~/code/z/z.sh
 # also consider moving over your current .z file if possible. it's painful to rebuild :)
 
 # z binary is already referenced from .bash_profile
-
 
 
 # my magic photobooth symlink -> dropbox. I love it.
