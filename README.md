@@ -10,28 +10,19 @@ My basic setup is captured in `install-deps.sh` which adds homebrew, z, etc.
 
 Toss it into a file called `.extra` which you do not commit to this repo and just keep in your `~/`
 
-### Sensible OS X defaults
+### Ubuntu settings
 
-When setting up a new Mac, you may want to set some sensible OS X defaults:
-
-```bash
-./.osx
-```
-
-### Ubuntu defaults
-
-My personal notes about setting up freshly installed Ubuntu are at `.ubuntu`. You can also do:
+`.ubuntu` is a script that sets up freshly installed Ubuntu 14.04. There are some notes about how to manually instal more programs. You can simply run:
 
 ```bash
 ./.ubuntu
 ```
 
 
-
 ## overview of files
 
 ####  Automatic config
-* `.vimrc`, `.vim` - vim config, obv.
+* `.vimrc`, `.vim` - vim config
 
 #### shell environment
 * `.aliases`
@@ -44,7 +35,7 @@ My personal notes about setting up freshly installed Ubuntu are at `.ubuntu`. Yo
 
 #### manual run
 * `install-deps.sh` - random apps i need installed
-* `.osx` - run on a fresh osx machine
+* `.brew` - run on a fresh osx machine
 * `.ubuntu` - run on a fresh ubuntu machine
 
 #### git
@@ -56,7 +47,6 @@ My personal notes about setting up freshly installed Ubuntu are at `.ubuntu`. Yo
 #### other
 * `Rosfile` - example Ros setup, do something similar in `.extra`
 * `BitbucketSsh` - example bitbucket shs setup, do something similar in `.extra`
-* `BrewFile` - do `brew bundle Brewfile`
 
 ## Installation
 
