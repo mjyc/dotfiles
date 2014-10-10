@@ -161,9 +161,9 @@ function rosmasteruri() {
 	echo "Running following commands:"
 	echo unset ROS_HOSTNAME;
 	echo ROS_MASTER_URI=http://"$1":11311;
-	echo ROS_IP=`ipconfig getifaddr "$1"`
+	echo ROS_IP=`ipconfig getifaddr "$2"`
 
 	unset ROS_HOSTNAME;
 	export ROS_MASTER_URI=http://"$1":11311;
-	export ROS_IP=`ipconfig getifaddr "$1"`
+	export ROS_IP=`ipconfig getifaddr "$2"`
 }
