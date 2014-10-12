@@ -177,12 +177,14 @@ function roscpplint() {
 		exit 1;
 	fi
 
+	# NOTE: make sure to filter out files you do not care yourself
+	# NOTE: eventually all grep -v should be removed and go to cpplint
 	if [[ "$OSTYPE" =~ ^darwin ]]; then
-		gfind "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)' | grep -v "${grepstr}"
-		python ${CPPLINT} `gfind "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)' | grep -v "${grepstr}"` | grep -v 'Do not leave a blank line after'
+		gfind "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)'
+		python ${CPPLINT} `gfind "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)'` | grep -v 'Do not leave a blank line after'
 	else
-		find "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)' | grep -v "${grepstr}"
-		python ${SCRIPT_PATH}/cpplint `find "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)' | grep -v "${grepstr}"` | grep -v 'Do not leave a blank line after'
+		find "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)'
+		python ${SCRIPT_PATH}/cpplint `find "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)'` | grep -v 'Do not leave a blank line after'
 	fi
 
 }
