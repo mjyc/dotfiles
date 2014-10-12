@@ -167,3 +167,23 @@ function rosmasteruri() {
 	export ROS_MASTER_URI=http://"$1":11311;
 	export ROS_IP=`ipconfig getifaddr "$2"`
 }
+
+
+function roscpplint() {
+	CPPLINT=~/sara/src/sara_jenkins_config/scripts/cpplint
+
+	if [ "$#" -ne 1 ] || [ ! -d "$1" ]; then
+		echo "usage: roscpplint [dir]";
+		exit 1;
+	fi
+
+	if [[ "$OSTYPE" =~ ^darwin ]]; then
+		gfind "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)' | grep -v "${grepstr}"
+		python ${CPPLINT} `gfind "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)' | grep -v "${grepstr}"` | grep -v 'Do not leave a blank line after'
+	else
+		find "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)' | grep -v "${grepstr}"
+		python ${SCRIPT_PATH}/cpplint `find "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)' | grep -v "${grepstr}"` | grep -v 'Do not leave a blank line after'
+	fi
+
+}
+
