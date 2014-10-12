@@ -155,17 +155,16 @@ gifify() {
 function rosmasteruri() {
 	if [ "$#" -ne 2 ]; then
 		echo "usage: rosmasteruri [master_uri] [interface]";
-		exit 1;
+	else
+		echo "Running following commands:"
+		echo unset ROS_HOSTNAME;
+		echo ROS_MASTER_URI=http://"$1":11311;
+		echo ROS_IP=`ipconfig getifaddr "$2"`
+
+		unset ROS_HOSTNAME;
+		export ROS_MASTER_URI=http://"$1":11311;
+		export ROS_IP=`ipconfig getifaddr "$2"`
 	fi
-
-	echo "Running following commands:"
-	echo unset ROS_HOSTNAME;
-	echo ROS_MASTER_URI=http://"$1":11311;
-	echo ROS_IP=`ipconfig getifaddr "$2"`
-
-	unset ROS_HOSTNAME;
-	export ROS_MASTER_URI=http://"$1":11311;
-	export ROS_IP=`ipconfig getifaddr "$2"`
 }
 
 
