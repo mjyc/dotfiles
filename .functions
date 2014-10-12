@@ -172,20 +172,20 @@ function rosmasteruri() {
 function roscpplint() {
 	CPPLINT=~/sara/src/sara_jenkins_config/scripts/cpplint
 
-	if [ "$#" -ne 1 ] || [ ! -d "$1" ]; then
-		echo "usage: roscpplint [dir]";
-		exit 1;
-	fi
-
-	# NOTE: make sure to filter out files you do not care yourself
-	# NOTE: eventually all grep -v should be removed and go to cpplint
-	if [[ "$OSTYPE" =~ ^darwin ]]; then
-		gfind "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)'
-		python ${CPPLINT} `gfind "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)'` | grep -v 'Do not leave a blank line after'
+	echo "$#"
+	if [ "$#" -lt 1 ] || [ ! -d "$1" ]; then
+		echo "usage: roscpplint dir [filterargs]";
 	else
-		find "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)'
-		python ${SCRIPT_PATH}/cpplint `find "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)'` | grep -v 'Do not leave a blank line after'
-	fi
+		FIND="find"
+		if [[ "$OSTYPE" =~ ^darwin ]]; then
+			FIND="gfind"
+		fi
 
+		if [[ "$#" -gt 1 ]]; then
+			python ${CPPLINT} --filter="$2" `"$FIND" "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)'`
+		else
+			python ${CPPLINT} `"$FIND" "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)'`
+		fi
+	fi
 }
 
