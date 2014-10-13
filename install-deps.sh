@@ -4,11 +4,12 @@
 
 # https://github.com/jamiew/git-friendly
 # the `push` command which copies the github compare URL to my clipboard is heaven
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-	bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
-else
-	sudo bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
-fi
+if [ ! -d ~/bin ]; then mkdir ~/bin; fi;
+cd ~/bin
+git clone git://github.com/jamiew/git-friendly.git ~/bin/git-friendly
+echo "Don’t forget to add ~/bin/git-friendly to \$PATH."
+cd ~
+
 
 # homebrew!
 if [[ "$OSTYPE" =~ ^darwin ]]; then
