@@ -201,4 +201,4 @@ function pep8dir() {
 		fi
 	fi
 }
-alias =
+
