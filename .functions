@@ -168,12 +168,9 @@ function rosmasteruri() {
 }
 
 
-function roscpplint() {
-	CPPLINT=~/sara/src/sara_jenkins_config/scripts/cpplint
-
-	echo "$#"
+function cpplintdir() {
 	if [ "$#" -lt 1 ] || [ ! -d "$1" ]; then
-		echo "usage: roscpplint dir [filterargs]";
+		echo "usage: cpplintdir dir [options]";
 	else
 		FIND="find"
 		if [[ "$OSTYPE" =~ ^darwin ]]; then
@@ -181,10 +178,27 @@ function roscpplint() {
 		fi
 
 		if [[ "$#" -gt 1 ]]; then
-			python ${CPPLINT} --filter="$2" `"$FIND" "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)'`
+			cpplint "$2" `"$FIND" "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)'`
 		else
-			python ${CPPLINT} `"$FIND" "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)'`
+			cpplint `"$FIND" "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)'`
 		fi
 	fi
 }
 
+function pep8dir() {
+	if [ "$#" -lt 1 ] || [ ! -d "$1" ]; then
+		echo "usage: pep8dir dir [options]";
+	else
+		FIND="find"
+		if [[ "$OSTYPE" =~ ^darwin ]]; then
+			FIND="gfind"
+		fi
+
+		if [[ "$#" -gt 1 ]]; then
+			"$FIND" . -iname "*.py" -exec pep8 "$2" '{}' \;
+		else
+			"$FIND" . -iname "*.py" -exec pep8 '{}' \;
+		fi
+	fi
+}
+alias =
