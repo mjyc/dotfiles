@@ -96,10 +96,10 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 fi
 
 # Trash aliases (install trash first)
-alias trash_tex='trash *.log *.aux *.nav *.out *.snm *.toc *.vrb *.bbl *.blg *.dvi *.synctex.gz *.fdb_latexmk' # use rvf for "rm"
-alias trash_tex_full='trash_tex; trash *.pdf'
-alias trash_java_class='trash -fv *.class' # use rvf for "rm"
-alias trash_vimswp="trash ~/.vim/swaps; mkdir ~/.vim/swaps"
+alias trashtex='trash *.log *.aux *.nav *.out *.snm *.toc *.vrb *.bbl *.blg *.dvi *.synctex.gz *.fdb_latexmk' # use rvf for "rm"
+alias trashtexfull='trash_tex; trash *.pdf'
+alias trashjavaclass='trash -fv *.class' # use rvf for "rm"
+alias trashvimswp="trash ~/.vim/swaps; mkdir ~/.vim/swaps"
 
 # ROS formatting
 alias rosindent="indent -bli0 -nce -l120 -cli2 -nut -npsl"
