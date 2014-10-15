@@ -195,9 +195,9 @@ function pep8dir() {
 		fi
 
 		if [[ "$#" -gt 1 ]]; then
-			"$FIND" . -iname "*.py" -exec pep8 "$2" '{}' \;
+			"$FIND" "$1" -iname "*.py" -exec pep8 "$2" '{}' \;
 		else
-			"$FIND" . -iname "*.py" -exec pep8 '{}' \;
+			"$FIND" "$1" -iname "*.py" -exec pep8 '{}' \;
 		fi
 	fi
 }
