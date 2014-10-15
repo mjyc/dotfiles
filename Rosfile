@@ -1,6 +1,6 @@
-#################################
+################################
 # ROS
-#################################
+################################
 
 source /opt/ros/hydro/setup.bash
 # if you have ROS compiled from source
@@ -16,9 +16,9 @@ export ROS_HOSTNAME=localhost
 export ROS_MASTER_URI=http://localhost:11311
 
 
-#################################
+################################
 # ROBOT aliases
-#################################
+################################
 # Requires rosmasteruri function to be defined in .functions file
 alias usepr2="unset ROBOT; rosmasteruri c1.cs.washington.edu en0"
 alias useturtlebot="unset ROBOT; rosmasteruri chester.cs.washington.edu en0"
