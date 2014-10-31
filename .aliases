@@ -104,3 +104,8 @@ alias trashvimswp="trash ~/.vim/swaps; mkdir ~/.vim/swaps"
 # ROS formatting
 alias rosindent="indent -bli0 -nce -l120 -cli2 -nut -npsl"
 alias rosastyle="astyle --style=allman --suffix=none --indent=spaces=2 --pad-oper --unpad-paren --pad-header --convert-tabs"
+
+# fund
+alias mang="man"
+alias just="sudo"
+
