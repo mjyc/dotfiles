@@ -159,11 +159,19 @@ function rosmasteruri() {
 		echo "Running following commands:"
 		echo unset ROS_HOSTNAME;
 		echo ROS_MASTER_URI=http://"$1":11311;
-		echo ROS_IP=`ipconfig getifaddr "$2"`
+		if [[ "$OSTYPE" =~ ^darwin ]]; then
+			echo ROS_IP=`ipconfig getifaddr "$2"`
+		else
+			echo ROS_IP=`ifconfig "$2" | awk '/inet/ { print $2 } ' | sed -e s/addr://`
+		fi	
 
 		unset ROS_HOSTNAME;
 		export ROS_MASTER_URI=http://"$1":11311;
-		export ROS_IP=`ipconfig getifaddr "$2"`
+		if [[ "$OSTYPE" =~ ^darwin ]]; then
+			export ROS_IP=`ipconfig getifaddr "$2"`
+		else
+			ROS_IP=`ifconfig "$2" | awk '/inet/ { print $2 } ' | sed -e s/addr://`
+		fi
 	fi
 }
 
