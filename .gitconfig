@@ -37,6 +37,8 @@
 	smudge = git media smudge %f
 [help]
 	autocorrect = 1
+[push]
+	default = simple
 [merge]
 	log = true
 [url "git@github.com:"]
@@ -46,5 +48,4 @@
     pushInsteadOf = "https://github.com/"
 [url "git://github.com/"]
 	insteadOf = "github:"
-
 
