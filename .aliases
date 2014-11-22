@@ -74,6 +74,14 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
 # Shortcuts
 alias g="git"
+alias gst="git status"
+alias gss="git status -s"
+alias gd="git diff"
+alias gl="git log -n 5"
+alias gln="git log -n"  # 5
+alias gau="git add -u"
+alias ga.="git add ."
+alias gauci="git add -u; git commit -m"
 alias s="subl"
 alias sa="subl -a"
 alias sn="subl -n"
@@ -101,11 +109,12 @@ alias trashtexfull='trash_tex; trash *.pdf'
 alias trashjavaclass='trash -fv *.class' # use rvf for "rm"
 alias trashvimswp="trash ~/.vim/swaps; mkdir ~/.vim/swaps"
 
-# ROS formatting
+# ROS
+# formatting
 alias rosindent="indent -bli0 -nce -l120 -cli2 -nut -npsl"
 alias rosastyle="astyle --style=allman --suffix=none --indent=spaces=2 --pad-oper --unpad-paren --pad-header --convert-tabs"
 
-# fund
+# fun
 alias mang="man"
 alias just="sudo"
 
