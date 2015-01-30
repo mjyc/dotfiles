@@ -54,7 +54,11 @@ alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup 
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en0"
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+    alias localip="ipconfig getifaddr en0"
+else
+    alias localip="ifconfig \"$2\" | awk '/inet/ { print $2 } ' | sed -e s/addr://"
+fi
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # Enhanced WHOIS lookups
@@ -109,6 +113,9 @@ alias trashtex='trash *.log *.aux *.nav *.out *.snm *.toc *.vrb *.bbl *.blg *.dv
 alias trashtexfull='trash_tex; trash *.pdf'
 alias trashjavaclass='trash -fv *.class' # use rvf for "rm"
 alias trashvimswp="trash ~/.vim/swaps; mkdir ~/.vim/swaps"
+
+# Clear screen
+alias cls="printf \"\033c\""
 
 # ROS
 # formatting
