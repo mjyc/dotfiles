@@ -114,7 +114,7 @@ fi
 
 # Trash aliases (install trash first)
 alias trashtex='trash *.log *.aux *.nav *.out *.snm *.toc *.vrb *.bbl *.blg *.dvi *.synctex.gz *.fdb_latexmk' # use rvf for "rm"
-alias trashtexfull='trash_tex; trash *.pdf'
+alias trashtexfull='trashtex; trash *.pdf'
 alias trashjavaclass='trash -fv *.class' # use rvf for "rm"
 alias trashvimswp="trash ~/.vim/swaps; mkdir ~/.vim/swaps"
 
