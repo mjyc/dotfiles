@@ -45,10 +45,6 @@ Toss it into a file called `.extra` which you do not commit to this repo and jus
 * `.gitconfig`
 * `.gitignore`
 
-#### other
-* `Rosfile` - example Ros setup, do something similar in `.extra`
-* `BitbucketSsh` - example bitbucket shs setup, do something similar in `.extra`
-
 ## Installation
 
 ```bash
