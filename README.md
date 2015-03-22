@@ -36,6 +36,7 @@ Toss it into a file called `.extra` which you do not commit to this repo and jus
 #### manual run
 * `install-deps.sh` - random apps i need installed
 * `.brew` - run on a fresh osx machine
+* `.brew-cask` - run on a fresh osx machine, installs apps
 * `.ubuntu` - run on a fresh ubuntu machine
 
 #### git
@@ -43,10 +44,6 @@ Toss it into a file called `.extra` which you do not commit to this repo and jus
 * `.gitattributes`
 * `.gitconfig`
 * `.gitignore`
-
-#### other
-* `Rosfile` - example Ros setup, do something similar in `.extra`
-* `BitbucketSsh` - example bitbucket shs setup, do something similar in `.extra`
 
 ## Installation
 
