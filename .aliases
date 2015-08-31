@@ -86,6 +86,7 @@ alias gd="git diff"
 alias gd.="git diff ."
 alias gl="git log -n 5"
 alias gln="git log -n"  # 5
+alias ga="git add"
 alias gau="git add -u"
 alias gau.="git add -u ."
 alias ga.="git add ."
