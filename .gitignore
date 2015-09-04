@@ -15,3 +15,6 @@ Thumbs.db
 
 # Sublime workspace files
 *.sublime-workspace
+
+# QtCreator user files
+CMakeLists.txt.user
