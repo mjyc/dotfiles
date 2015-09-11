@@ -1,7 +1,7 @@
 # Programs
 if [[ "$OSTYPE" =~ ^darwin ]]; then
 	alias google-chrome='open -a "Google Chrome"'
-	alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+	alias subl='~/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 	alias updatedb='sudo /usr/libexec/locate.updatedb'
 else
 	# Simulates pbcopy. requires xclip installed.
