@@ -40,7 +40,7 @@ alias lg="ls -go"
 alias lsd='ls -l | grep "^d"'
 
 # `cat` with beautiful colors. requires Pygments installed.
-alias dog='pygmentize -O style=default -f console256 -g'
+alias c='pygmentize -O style=default -f console256 -g'
 
 
 # GIT STUFF
