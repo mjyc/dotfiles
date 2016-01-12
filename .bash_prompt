@@ -73,7 +73,7 @@ function usernamehost() {
 # in the iterm tab
 # \[\e]1;\]$(basename $(dirname $PWD))/\W\[\a\]
 
-if [ $ROSINFO ]; then
+if [ "$ROSINFO" = true ]; then
 	PS1="\[\e]2;$PWD\[\a\]\[\e]1;\]$(basename "$(dirname "$PWD")")/\W\[\a\]${BOLD}\$(usernamehost)\[$GREEN\]\w\$(git_info)\$(ros_info)\[$WHITE\]\n\$ \[$RESET\]"
 else
 	PS1="\[\e]2;$PWD\[\a\]\[\e]1;\]$(basename "$(dirname "$PWD")")/\W\[\a\]${BOLD}\$(usernamehost)\[$GREEN\]\w\$(git_info)\[$WHITE\]\n\$ \[$RESET\]"
