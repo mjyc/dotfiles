@@ -19,19 +19,14 @@ fi
 
 # https://github.com/rupa/z
 # z, oh how i love you
-if [ ! -d ~/code ]; then mkdir ~/code; fi;
-cd ~/code
+if [ ! -d ~/local/src ]; then mkdir -p ~/local/src; fi;
+cd ~/local/src
 git clone https://github.com/rupa/z.git
-chmod +x ~/code/z/z.sh
+chmod +x ~/local/src/z/z.sh
 # also consider moving over your current .z file if possible. it's painful to rebuild :)
 
 # z binary is already referenced from .bash_profile
 
-
-# my magic photobooth symlink -> dropbox. I love it.
-# first move Photo Booth folder out of Pictures
-# then start Photo Booth. It'll ask where to put the library.
-# put it in Dropbox/public
 
 # now you can record photobooth videos quickly and they upload to dropbox DURING RECORDING
 # then you grab public URL and send off your video message in a heartbeat.
