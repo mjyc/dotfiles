@@ -4,6 +4,16 @@ import os
 import sys
 import subprocess
 from optparse import OptionParser
+import imp
+joblibFound = False
+try:
+    imp.find_module("joblib")
+    joblibFound = True
+    from joblib import Parallel, delayed
+    import multiprocessing
+except ImportError:
+    print "joblib module is not available."
+    joblibFound = False
 
 
 # ---------------------------------------------
@@ -23,11 +33,8 @@ def selectRepos(repos, selection):
         for s in selection:
             if s in repos:
                 selrepos.append(s)
-            elif ("sara_"+s) in repos:
-                selrepos.append("sara_"+s)
             else:
-                printError("No repo "+s)
-                sys.exit(-1)
+                printError("No repo " + s + ", Skipping.")
     else:
         selrepos = repos
     return selrepos
@@ -109,6 +116,7 @@ options = OptionParser(usage="usage %prog git_command [repo1] [repo2] ...",
                        description=("Executes the given git command in multiple SARA repo repositories. You can skip "
                                     "the sara_ prefix in the repo name."))
 options.add_option("-t", "--target-workspace", type="string", help="which workspace to use")
+options.add_option("-s", "--single-core-execution", action="store_true", dest="single")
 
 
 # ---------------------------------------------
@@ -133,12 +141,18 @@ def main():
     selRepos = selectRepos(repos, args[1:])
 
     # Run commands for each repo
-    print
-    for repo in selRepos:
+    def processRepo(repo):
         printAttr(repo, ["33", "1"])
         printAttr("-" * len(repo), ["33", "1"])
         runCommand(workspace, repo, "git " + gitcmd)
         print
+    print
+    if joblibFound and not opts.single:
+        pool = Parallel(n_jobs=multiprocessing.cpu_count())
+        pool(delayed(runCommand)(workspace, repo, "git " + gitcmd) for repo in selRepos)
+    else:
+        for repo in selRepos:
+            processRepo(repo)
 
 
 if __name__ == "__main__":
