@@ -4,10 +4,10 @@ brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
 
 # daily
-brew cask install alfred
+# brew cask install alfred
 # brew cask install divvy  # use App Sore
 brew cask install dropbox
-brew cask install gyazo
+# brew cask install gyazo
 brew cask install rescuetime
 
 # dev
@@ -26,5 +26,5 @@ brew cask install gimp
 brew cask install github
 brew cask install mou
 brew cask install vlc
-brew cask install yed
+# brew cask install yed
 
