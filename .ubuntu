@@ -17,16 +17,16 @@ sudo apt-get install -y ssh synaptic vim gconf-editor xclip trash-cli tree pv
 # 3. install Korean language pack
 
 # Installing the newest tmux
-if [ ! -d ~/local/src/tmux-tmux-code ]; then
+if [ ! -d ~/local/src/tmux ]; then
 	pushd .
 	sudo apt-get install -y libevent-dev libncurses-dev pkg-config autoconf
 	mkdir -p ~/local/src; cd ~/local/src/
-	git clone git://git.code.sf.net/p/tmux/tmux-code tmux-tmux-code
-	cd tmux-tmux-code
+	git clone https://github.com/tmux/tmux.git
+	cd tmux
 	git checkout tags/1.9a
 	autoreconf -fis
 	./configure --prefix ~/local/
-	make; make install
+	make && make install
 	popd
 	echo "Don’t forget to add ~/local/bin to \$PATH."
 fi;
