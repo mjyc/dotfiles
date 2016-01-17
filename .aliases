@@ -129,11 +129,6 @@ alias trashvimswp="trash ~/.vim/swaps; mkdir ~/.vim/swaps"
 # Clear screen
 alias cls="printf \"\033c\""
 
-# ROS
-# formatting
-alias rosastyle="astyle --style=allman --suffix=none --indent=spaces=2 --pad-oper --unpad-paren --pad-header --convert-tabs"
-alias rosastyledir="astyle --style=allman --suffix=none --indent=spaces=2 --pad-oper --unpad-paren --pad-header --convert-tabs"
 # fun
 alias mang="man"
 alias just="sudo"
-
