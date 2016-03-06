@@ -8,7 +8,7 @@ brew tap caskroom/versions
 # brew cask install divvy  # use App Sore
 brew cask install dropbox
 # brew cask install gyazo
-brew cask install rescuetime
+# brew cask install rescuetime
 
 # dev
 brew cask install iterm2

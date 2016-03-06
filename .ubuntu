@@ -9,10 +9,10 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Basics
-sudo apt-get install -y ssh synaptic vim gconf-editor xclip trash-cli tree pv
+sudo apt-get install -y ssh synaptic vim xclip trash-cli tree pv
 
 # At this point, I like to
-# 1. install programs I use daily, such as Chromium, Dropbox, Skype, Gnote, meshlab, qtcreator
+# 1. install programs I use daily, such as Chrome, Chrome remote desktop, Dropbox, Gnote, meshlab, qtcreator
 # 2. setup keyboard shortcuts (google-chrome) and set keyboard delay time to smallest possible
 # 3. install Korean language pack
 
