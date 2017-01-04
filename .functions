@@ -34,12 +34,6 @@ cp_p () {
 }
 
 
-# Test if HTTP compression (RFC 2616 + SDCH) is enabled for a given URL.
-# Send a fake UA string for sites that sniff it instead of using the Accept-Encoding header. (Looking at you, ajax.googleapis.com!)
-function httpcompression() {
-	encoding="$(curl -LIs -H 'User-Agent: Mozilla/5 Gecko' -H 'Accept-Encoding: gzip,deflate,compress,sdch' "$1" | grep '^Content-Encoding:')" && echo "$1 is encoded using ${encoding#* }" || echo "$1 is not using any encoding"
-}
-
 # Syntax-highlight JSON strings or files
 function json() {
 	if [ -p /dev/stdin ]; then
@@ -65,20 +59,6 @@ function gz() {
 	cat "$1" | wc -c
 	echo "gzipped size (bytes): "
 	gzip -c "$1" | wc -c
-}
-
-
-# Escape UTF-8 characters into their 3-byte format
-function escape() {
-	printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
-	echo # newline
-}
-
-
-# Decode \x{ABCD}-style Unicode escape sequences
-function unidecode() {
-	perl -e "binmode(STDOUT, ':utf8'); print \"$@\""
-	echo # newline
 }
 
 
@@ -156,4 +136,3 @@ function pep8dir() {
 		fi
 	fi
 }
-

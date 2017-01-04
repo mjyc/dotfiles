@@ -8,7 +8,7 @@ else
 	alias pbcopy='xclip -selection clipboard'
 	alias pbpaste='xclip -selection clipboard -o'
 	alias trash='trash-put'
-	alias google-chrome='chromium-browser'
+	alias google-chrome='google-chrome-stable'
 fi
 
 # Enable color support of ls and also add handy aliases
@@ -78,14 +78,8 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
 # Shortcuts
 alias g="git"
-alias gst="git status"
-alias gst.="git status ."
-alias gs="git status -s"
-alias gs.="git status -s ."
 alias gd="git diff"
-alias gd.="git diff ."
 alias gdf="git df"
-alias gdf.="git df ."
 alias gcdiff="git difftool --extcmd icdiff"
 alias gl1="git log -n 1"
 alias gl="git log -n 5"
@@ -93,13 +87,8 @@ alias gln="git log -n"
 alias glg="git lg"
 alias ga="git add"
 alias gau="git add -u"
-alias gau.="git add -u ."
-alias ga.="git add ."
 alias gcim="git commit -m"
 alias gaucim="git add -u && git commit -m"
-alias ga.cim="git add . && git commit -m"
-alias gau.cim="git add -u . && git commit -m"
-alias gbrva="git br -va"
 alias s="subl"
 alias sa="subl -a"
 alias sn="subl -n"
@@ -108,9 +97,6 @@ alias v="vim"
 
 # File size
 alias fs="stat -f \"%z bytes\""
-
-# ROT13-encode text. Works for decoding, too! ;)
-alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 
 # Empty the Trash on all mounted volumes and the main HDD
 if [[ "$OSTYPE" =~ ^darwin ]]; then
@@ -130,10 +116,3 @@ alias trashtex='trash *.log *.aux *.nav *.out *.snm *.toc *.vrb *.bbl *.blg *.dv
 alias trashtexfull='trashtex; trash *.pdf'
 alias trashjavaclass='trash -fv *.class' # use rvf for "rm"
 alias trashvimswp="trash ~/.vim/swaps; mkdir ~/.vim/swaps"
-
-# Clear screen
-alias cls="printf \"\033c\""
-
-# fun
-alias mang="man"
-alias just="sudo"
