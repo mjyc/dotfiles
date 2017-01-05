@@ -78,6 +78,8 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
 # Shortcuts
 alias g="git"
+alias gs="git s"
+alias gst="git st"
 alias gd="git diff"
 alias gdf="git df"
 alias gcdiff="git difftool --extcmd icdiff"
