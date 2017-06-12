@@ -52,6 +52,7 @@ set ignorecase " Ignore case when searching
 set incsearch " Show search matches as you type
 set ls=2 " Allways show status line
 set modeline " Display filename
+set mouse=a " Enable mouse
 set nowrap " Don't wrap lines
 set number " Dusplay line number
 " set paste! " Start with paste mode
@@ -231,6 +232,3 @@ endif
 au BufRead,BufNewFile *.md set filetype=text
 " JSON
 au BufRead,BufNewFile *.json set ft=json syntax=javascript
-
-
-
