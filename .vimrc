@@ -5,7 +5,8 @@ execute pathogen#helptags()
 syntax on
 filetype indent plugin on
 
-" Color theme
+
+" Color Theme
 " colorscheme darkburn
 " http://sunaku.github.io/vim-256color-bce.html
 if &term =~ '256color'
@@ -15,27 +16,29 @@ if &term =~ '256color'
   set t_ut=
 endif
 
-" Mac
-if has ("gui_macvim")
+
+" OSX
+if has ('gui_macvim')
   set macmeta
 endif
 
-" Syntastic
-let g:syntastic_javascript_checkers = ['jslint']
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=1
 
-" Multiple-cursors
+" Packages
+" ctrlp
+let g:ctrlp_custom_ignore = 'node_modules'
+let g:ctrlp_dotfiles = 0
+" vim-multiple-cursors
 let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
 
-" Local dirs
+
+" Local Dirs
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 set undodir=~/.vim/undo
 
 
-" Bunch of stuff...
+" Stuff
 set autochdir
 set autoindent " Always set autoindenting on
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode
@@ -74,21 +77,20 @@ if has('unnamedplus')
 endif
 
 
+
 "" KEY BINDINGS
 
-" Efficient command
+" Typo Proof
 nnoremap ; :
 nnoremap <C-@> :set paste!<CR>
 " nnoremap <C-@> :set nopaste<CR> " <C-@> == <C-Space>
-
-" Sudo write (,W)
-noremap <leader>W :w !sudo tee %<CR>
-
-" Remap :W to :w
 command W w
 command Wq wq
 
-" Speed up viewport scrolling
+" Sudo Write (,W)
+noremap <leader>W :w !sudo tee %<CR>
+
+" Scrolling
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
@@ -123,10 +125,7 @@ map <C-j> 10j
 map <C-k> 10k
 
 " Control
-" imap jj <Esc>
 imap kj <Esc>
-" vnoremap <C-c> <Esc>
-" imap <C-c> <Esc>
 map <C-c> <Esc>
 inoremap <silent> <Esc> <Esc>`^
 set timeoutlen=100 ttimeoutlen=1
@@ -137,58 +136,41 @@ map <Esc>k <C-W>k
 map <Esc>h <C-W>h
 map <Esc>l <C-W>l
 
-" Copy and paste
-" "*p/y, <C-r>*  paste from mouse buttom
-" "+p/y, <C-r>+  paste from clipboard
-" I don't use P and Y at all.
-"vmap y "+y
-"vmap p "+p
-"
-" Indent/unident block (,]) (,[)
+" General Dev
+" indent/unident block (,]) (,[)
 nnoremap <leader>] >i{<CR>
 nnoremap <leader>[ <i{<CR>
-
-" Yank from cursor to end of line
-nnoremap Y y$
-
-" Insert newline
-map <leader><Enter> o<ESC>
-
-" Strip trailing whitespace (,ss)
+" strip trailing whitespace (,ss)
 function! StripWhitespace ()
-    let save_cursor = getpos(".")
-    let old_query = getreg('/')
-    :%s/\s\+$//e
-    call setpos('.', save_cursor)
-    call setreg('/', old_query)
+  let save_cursor = getpos(".")
+  let old_query = getreg('/')
+  :%s/\s\+$//e
+  call setpos('.', save_cursor)
+  call setreg('/', old_query)
 endfunction
 noremap <leader>ss :call StripWhitespace ()<CR>
-
-" Toggle folds (<Space>)
+" toggle folds (<Space>)
 nnoremap <silent> <space> :exe 'silent! normal! '.((foldclosed('.')>0)? 'zMzx' : 'zc')<CR>
-
-" Better mark jumping (line + col)
+" mark jumping (line + col)
 nnoremap ' `
-
-" Requires NERDTree
-" map <F2> :NERDTreeToggle<CR>
+" open NERDtree
 map <leader>n :NERDTreeToggle<CR>
 
-" Highlight setup
-" Shortcut to rapidly toggle `set list`
+" Highlight
+" toggle `set list`
 nmap <leader>l :set list!<CR>:set number!<CR>
 set list!
-" Use the same symbols as TextMate for tabstops and EOLs
+" use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
-" Invisible character colors
+" invisible character colors
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 
-" Linebreak setups
+" Linebreak
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
 function ToggleWrap()
   if &wrap
-    echo "Wrap OFF"
+    echo 'Wrap OFF'
     setlocal nowrap
     unmap k
     unmap j
@@ -196,7 +178,7 @@ function ToggleWrap()
     unmap ^
     unmap $
   else
-    echo "Wrap ON"
+    echo 'Wrap ON'
     setlocal wrap
     map <silent> k gk
     map <silent> j gj
@@ -207,13 +189,12 @@ function ToggleWrap()
 endfunction
 :silent call ToggleWrap()
 
-
 " Detect file changes
 autocmd FileChangedShell * echo "Warning: File changed on disk"
 
-" FileType setup
+" FileTypes
 " Only do this part when compiled with support for autocommands
-if has("autocmd")
+if has('autocmd')
   " Enable file type detection
   filetype on
   "autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
@@ -223,12 +204,10 @@ if has("autocmd")
   "autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
   autocmd FileType python setlocal ts=8 sts=4 sw=4 expandtab
   "autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-  " ROS Configuration
   autocmd BufRead,BufNewFile *.launch setfiletype roslaunch
-  " Commentary setup
   autocmd FileType cmake set commentstring=#\ %s
 endif
-" MD
+" Markdown
 au BufRead,BufNewFile *.md set filetype=text
 " JSON
 au BufRead,BufNewFile *.json set ft=json syntax=javascript
