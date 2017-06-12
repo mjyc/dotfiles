@@ -3,9 +3,9 @@
 
 
 # homebrew!
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
+# if [[ "$OSTYPE" =~ ^darwin ]]; then
+  # /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+#fi
 
 
 # https://github.com/rupa/z
@@ -19,18 +19,9 @@ chmod +x ~/local/src/z/z.sh
 # z binary is already referenced from .bash_profile
 
 
-# now you can record photobooth videos quickly and they upload to dropbox DURING RECORDING
-# then you grab public URL and send off your video message in a heartbeat.
-
-
 # for the c alias (syntax highlighted cat)
 if [[ "$OSTYPE" =~ ^darwin ]]; then
-	sudo easy_install Pygments
+  sudo easy_install Pygments
 else
-	sudo apt-get install python-pygments
+  sudo apt-get install python-pygments
 fi
-
-
-# chrome canary as default
-# on a mac you can set chrome canary as your default inside of Safari preferences :)
-
