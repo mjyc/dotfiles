@@ -8,12 +8,13 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-# Basics
-sudo apt-get install -y ssh synaptic vim vim-gnome xclip trash-cli tree pv tmux
+# Essentials
+sudo apt-get install -y ssh network-manager-openvpn-gnome synaptic vim-gnome xclip trash-cli tree pv tmux
 
-# Software Installations
-# 1. Install programs I use daily, such as Chrome, Dropbox, Gnote, qtcreator
-# 2. Setup keyboard shortcuts (google-chrome) and set keyboard delay time to smallest possible
-# 3. Install Korean language pack
-# See https://medium.com/@racter/how-to-install-ubuntu-16-04-on-a-retina-macbook-11-2-74e7779c0e4://medium.com/@racter/how-to-install-ubuntu-16-04-on-a-retina-macbook-11-2-74e7779c0e47 for further tweaking
+# Daily
+sudo apt-get install chromium-browser language-pack-ko-base qtcreator gnote indicator-multiload unity-tweak-tool gnome-tweak-tool
+# tunning synaptic in Ubuntu 16.04
+# sudo apt-get install apt-xapian-index && sudo update-apt-xapian-index -vf
 
+# For Macbook Pro 11-3
+# sudo apt-get install -y bcmwl-kernel-source nvidia-375
