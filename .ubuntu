@@ -9,12 +9,12 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Essentials
-sudo apt-get install -y ssh network-manager-openvpn-gnome mosh xpra synaptic vim-gnome xclip trash-cli tree pv tmux
+sudo apt install -y ssh network-manager-openvpn-gnome mosh xpra synaptic vim-gnome xclip trash-cli tree pv tmux
 
 # Daily
-sudo apt-get install chromium-browser language-pack-ko-base qtcreator gnote indicator-multiload unity-tweak-tool gnome-tweak-tool
+sudo apt install chromium-browser language-pack-ko-base qtcreator gnote indicator-multiload unity-tweak-tool gnome-tweak-tool
 # tunning synaptic in Ubuntu 16.04
-# sudo apt-get install apt-xapian-index && sudo update-apt-xapian-index -vf
+# sudo apt install apt-xapian-index && sudo update-apt-xapian-index -vf
 
 # For Macbook Pro 11-3
-# sudo apt-get install -y bcmwl-kernel-source nvidia-375
+# sudo apt install -y bcmwl-kernel-source nvidia-375
