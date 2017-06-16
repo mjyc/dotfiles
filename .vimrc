@@ -25,11 +25,13 @@ endif
 
 " Packages
 " ctrlp
-let g:ctrlp_custom_ignore = 'node_modules'
-let g:ctrlp_dotfiles = 0
+let g:ctrlp_custom_ignore='node_modules'
+let g:ctrlp_dotfiles=0
 " vim-multiple-cursors
 let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
+" vim-tmux-navigator
+let g:tmux_navigator_no_mappings=0
 
 
 " Local Dirs
