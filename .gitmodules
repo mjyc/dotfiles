@@ -17,3 +17,6 @@
 	path = .vim/bundle/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
 	ignore = dirty
+[submodule ".vim/bundle/vim-bufkill"]
+	path = .vim/bundle/vim-bufkill
+	url = git@github.com:qpkorr/vim-bufkill.git
