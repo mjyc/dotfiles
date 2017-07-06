@@ -32,6 +32,9 @@ let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
 " vim-tmux-navigator
 " Update c-h/j/k/l\ in ~/.vim/bundle/vim-tmux-navigator/ to ESC-h/j/k/l/\
+" vim-airline
+let g:airline#extensions#tabline#enabled=1
+let g:airline_theme='base16_ashes'
 
 
 " Local Dirs
