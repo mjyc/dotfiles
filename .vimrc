@@ -120,8 +120,8 @@ map <S-l> :tabnext<CR>
 " nnoremap <leader>d :tabclose<CR>
 
 " Buffer
-map <S-j> :bp<CR>
-map <S-k> :bn<CR>
+map <S-k> :bp<CR>
+map <S-j> :bn<CR>
 
 " Movements
 map <C-l> $
