@@ -15,4 +15,4 @@ else
 fi
 unset doIt
 source ~/.bash_profile
-echo $'\nIMPORTANT! Update c-h/j/k/l\ in ~/.vim/bundle/vim-tmux-navigator/ to ESC-h/j/k/l/\'
+printf '\nIMPORTANT! Update c-h/j/k/l\ in ~/.vim/bundle/vim-tmux-navigator/ to ESC-h/j/k/l/\'
