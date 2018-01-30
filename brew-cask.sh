@@ -11,5 +11,4 @@ brew cask install chromium --force
 brew cask install firefox
 # misc.
 brew cask install gimp
-brew cask install mou
 brew cask install vlc
