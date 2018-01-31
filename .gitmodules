@@ -19,10 +19,10 @@
 	ignore = dirty
 [submodule ".vim/bundle/vim-bufkill"]
 	path = .vim/bundle/vim-bufkill
-	url = git@github.com:qpkorr/vim-bufkill.git
+	url = https://github.com/qpkorr/vim-bufkill
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
-	url = git://github.com/tpope/vim-surround.git
+	url = https://github.com/tpope/vim-surround
 [submodule ".vim/bundle/vim-airline-themes"]
 	path = .vim/bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
