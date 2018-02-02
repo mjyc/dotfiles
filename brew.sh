@@ -16,11 +16,12 @@ brew install moreutils
 brew install findutils
 # Install GNU `sed` to overwrite the built-in `sed`
 brew install gnu-sed --default-names
+# Install wget with IRI support
+brew install wget --enable-iri
+# Install more linux programs...
 brew install gnu-tar --with-default-names
 brew install gzip
 brew install watch
-# Install wget with IRI support
-brew install wget --enable-iri
 # Install Bash 4
 # NOTE: Don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
 brew install bash
@@ -45,6 +46,7 @@ brew install tmux
 brew install ssh-copy-id
 brew install ffmpeg
 brew install gifsicle
+brew install icdiff
 
 # Remove outdated versions from the cellar
 brew cleanup
