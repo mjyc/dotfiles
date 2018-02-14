@@ -102,10 +102,10 @@ nnoremap <C-y> 3<C-y>
 
 " Split
 map <Tab> <C-w>w
-map - <C-W>-
-map + <C-W>+
-map 8 <C-W><
-map 9 <C-W>>
+map - 3<C-W>-
+map = 3<C-W>+
+map 8 3<C-W><
+map 9 3<C-W>>
 map <leader>o :sp<cr>
 map <leader>e :vsp<cr>
 
@@ -115,8 +115,8 @@ nmap <silent> kl :nohlsearch<CR>
 " Tab
 " nnoremap <leader>n :tabprevious<CR>
 " nnoremap <leader>p :tabnext<CR>
-map <S-h> :tabprevious<CR>
-map <S-l> :tabnext<CR>
+" map <S-h> :tabprevious<CR>
+" map <S-l> :tabnext<CR>
 " nnoremap <leader>t :tabnew<CR>
 " nnoremap <leader>d :tabclose<CR>
 
@@ -203,15 +203,12 @@ autocmd FileChangedShell * echo "Warning: File changed on disk"
 if has('autocmd')
   " Enable file type detection
   filetype on
-  "autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType cmake setlocal ts=4 sts=2 sw=2 expandtab
+  autocmd FileType cmake setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType cmake set commentstring=#\ %s
   autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
-  "autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-  autocmd FileType python setlocal ts=8 sts=4 sw=4 expandtab
-  "autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
   autocmd BufRead,BufNewFile *.launch setfiletype roslaunch
-  autocmd FileType cmake set commentstring=#\ %s
 endif
 " Markdown
 au BufRead,BufNewFile *.md set filetype=text
