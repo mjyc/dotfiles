@@ -9,7 +9,7 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Essentials
-sudo apt install -y ssh network-manager-openvpn-gnome mosh xpra synaptic vim vim-gnome xclip trash-cli tree pv tmux
+sudo apt install -y ssh network-manager-openvpn-gnome curl mosh synaptic vim vim-gnome xclip trash-cli tree pv tmux
 
 ## install icdiff
 curl -s https://raw.githubusercontent.com/jeffkaufman/icdiff/release-1.9.1/icdiff \
@@ -17,15 +17,15 @@ curl -s https://raw.githubusercontent.com/jeffkaufman/icdiff/release-1.9.1/icdif
   && sudo chmod ugo+rx /usr/local/bin/icdiff
 
 ## install hub
-sudo add-apt-repository ppa:cpick/hub
-sudo apt-get update
-sudo apt-get install hub
+sudo add-apt-repository ppa:cpick/hub -y
+sudo apt update
+sudo apt install -y hub
 
 # Daily
 sudo apt install chromium-browser qtcreator gnote indicator-multiload unity-tweak-tool gnome-tweak-tool
 if [[ $(lsb_release -rs) = "16.04" ]]; then
   # install synaptic
-  sudo apt install apt-xapian-index && sudo update-apt-xapian-index -vf
+  sudo apt install -y apt-xapian-index && sudo update-apt-xapian-index -vf
 fi
 # TODO: finish scriptizing language setup; installing language-pack-ko-base pkg alone does not completes
 
