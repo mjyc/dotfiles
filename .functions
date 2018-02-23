@@ -101,7 +101,10 @@ function extract() {
 
 
 function localip() {
-	local interface="$0"
+	local interface="$1"
+	if [ "$#" -lt 1 ]; then
+		interface="eth0"
+	fi
 	if [[ "$OSTYPE" =~ ^darwin ]]; then
 		ipconfig getifaddr "$interface"
 	else
