@@ -54,11 +54,6 @@ alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup 
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-    alias localip="ipconfig getifaddr en0"
-else
-    alias localip="ifconfig eth0 | awk '/inet/ { print $2 } ' | sed -e s/addr://"
-fi
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # Enhanced WHOIS lookups

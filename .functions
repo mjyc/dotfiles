@@ -100,6 +100,16 @@ function extract() {
 }
 
 
+function localip() {
+	local interface="$0"
+	if [[ "$OSTYPE" =~ ^darwin ]]; then
+		ipconfig getifaddr "$interface"
+	else
+		ifconfig "$interface" | awk '/inet/ { print $2 } ' | sed -e s/addr://
+	fi
+}
+
+
 # Recursive cpplint
 function cpplintdir() {
 	if [ "$#" -lt 1 ] || [ ! -d "$1" ]; then
