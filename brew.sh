@@ -35,6 +35,7 @@ brew install homebrew/dupes/screen
 
 # Install the rest
 brew install git
+brew install hub
 brew install imagemagick --with-webp
 brew install node # This installs `npm` too using the recommended installation method
 brew install pv
