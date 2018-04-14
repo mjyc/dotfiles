@@ -39,6 +39,14 @@ else
 	RESET="\033[m"
 fi
 
+# Only show username/host if not default
+function usernamehost() {
+	if [ $USER != "$default_username" ]; then
+		echo "${MAGENTA}$USER ${WHITE}at ${ORANGE}$HOSTNAME $WHITEin ";
+	else
+		echo "${ORANGE}$HOSTNAME $WHITEin ";
+	fi
+}
 
 function git_info() {
 	# check if we're in a git repo
@@ -61,25 +69,6 @@ function git_info() {
 #     echo " "${WHITE}using ${PURPLE}$ROSMASTER
 #   fi
 # }
-
-# Only show username/host if not default
-function usernamehost() {
-	if [ $USER != "$default_username" ]; then
-		echo "${MAGENTA}$USER ${WHITE}at ${ORANGE}$HOSTNAME $WHITEin ";
-	else
-		echo "${ORANGE}$HOSTNAME $WHITEin ";
-	fi
-}
-
-# iTerm Tab and Title Customization and prompt customization
-# http://sage.ucsc.edu/xtal/iterm_tab_customization.html
-
-# Put the string " [bash]   hostname::/full/directory/path"
-# in the title bar using the command sequence
-# \[\e]2;[bash]   \h::\]$PWD\[\a\]
-
-# Put the penultimate and current directory in the iterm tab
-# \[\e]1;\]$(basename $(dirname $PWD))/\W\[\a\]
 
 if [ "$PROMPT_ROS" = true ]; then
 	PS1="\[\e]2;$PWD\[\a\]\[\e]1;\]$(basename "$(dirname "$PWD")")/\W\[\a\]${BOLD}\$(usernamehost)\[$GREEN\]\w\$(git_info)\$(ros_info)\[$WHITE\]\n\$ \[$RESET\]"
