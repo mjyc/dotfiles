@@ -113,6 +113,22 @@ function localip() {
 }
 
 
+# Create a new tmux session or attach the session with a given sessionname
+function mux() {
+    local sessionname="$1"
+    local panename="$2"
+    if [[ ! $(tmux ls | grep $1) ]]; then
+        tmux new-session -d -s "$sessionname"
+        if [ ! -z "$panename" ]; then
+            tmux rename-window -t "$sessionname":1 "$panename"
+        fi
+    fi
+    tmux select-window -t "$sessionname":1
+    tmux attach -d -t "$sessionname"
+}
+
+
+
 # Recursive cpplint
 function cpplintdir() {
 	if [ "$#" -lt 1 ] || [ ! -d "$1" ]; then
