@@ -1,30 +1,30 @@
 # Create a new directory and enter it
 function md() {
-	mkdir -p "$@" && cd "$@"
+  mkdir -p "$@" && cd "$@"
 }
 
 
 # find shorthand
 function f() {
-	find . -name "$1"
+  find . -name "$1"
 }
 
 
 # cd into whatever is the forefront Finder window.
 if [[ "$OSTYPE" =~ ^darwin ]]; then
-	cdf() {  # short for cdfinder
-	  cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
-	}
+  cdf() {  # short for cdfinder
+    cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
+  }
 fi
 
 
 # Start an HTTP server from a directory, optionally specifying the port
 function server() {
-	local port="${1:-8000}"
-	open "http://localhost:${port}/"
-	# Set the default Content-Type to `text/plain` instead of `application/octet-stream`
-	# And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
-	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
+  local port="${1:-8000}"
+  open "http://localhost:${port}/"
+  # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
+  # And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
+  python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
 }
 
 
@@ -36,81 +36,81 @@ cp_p () {
 
 # Syntax-highlight JSON strings or files
 function json() {
-	if [ -p /dev/stdin ]; then
-		# piping, e.g. `echo '{"foo":42}' | json`
-		python -mjson.tool | pygmentize -l javascript
-	else
-		# e.g. `json '{"foo":42}'`
-		python -mjson.tool <<< "$*" | pygmentize -l javascript
-	fi
+  if [ -p /dev/stdin ]; then
+    # piping, e.g. `echo '{"foo":42}' | json`
+    python -mjson.tool | pygmentize -l javascript
+  else
+    # e.g. `json '{"foo":42}'`
+    python -mjson.tool <<< "$*" | pygmentize -l javascript
+  fi
 }
 
 
 # Take this repo and copy it to somewhere else minus the .git stuff.
 function gitexport(){
-	mkdir -p "$1"
-	git archive master | tar -x -C "$1"
+  mkdir -p "$1"
+  git archive master | tar -x -C "$1"
 }
 
 
 # Get gzipped size
 function gz() {
-	echo "orig size    (bytes): "
-	cat "$1" | wc -c
-	echo "gzipped size (bytes): "
-	gzip -c "$1" | wc -c
+  echo "orig size    (bytes): "
+  cat "$1" | wc -c
+  echo "gzipped size (bytes): "
+  gzip -c "$1" | wc -c
 }
 
 
 # Extract archives - use: extract <file>
 # Based on http://dotfiles.org/~pseup/.bashrc
 function extract() {
-	if [ -f "$1" ] ; then
-		local filename=$(basename "$1")
-		local foldername="${filename%%.*}"
-		local fullpath=`perl -e 'use Cwd "abs_path";print abs_path(shift)' "$1"`
-		local didfolderexist=false
-		if [ -d "$foldername" ]; then
-			didfolderexist=true
-			read -p "$foldername already exists, do you want to overwrite it? (y/n) " -n 1
-			echo
-			if [[ $REPLY =~ ^[Nn]$ ]]; then
-				return
-			fi
-		fi
-		mkdir -p "$foldername" && cd "$foldername"
-		case $1 in
-			*.tar.bz2) tar xjf "$fullpath" ;;
-			*.tar.gz) tar xzf "$fullpath" ;;
-			*.tar.xz) tar Jxvf "$fullpath" ;;
-			*.tar.Z) tar xzf "$fullpath" ;;
-			*.tar) tar xf "$fullpath" ;;
-			*.taz) tar xzf "$fullpath" ;;
-			*.tb2) tar xjf "$fullpath" ;;
-			*.tbz) tar xjf "$fullpath" ;;
-			*.tbz2) tar xjf "$fullpath" ;;
-			*.tgz) tar xzf "$fullpath" ;;
-			*.txz) tar Jxvf "$fullpath" ;;
-			*.zip) unzip "$fullpath" ;;
-			*) echo "'$1' cannot be extracted via extract()" && cd .. && ! $didfolderexist && rm -r "$foldername" ;;
-		esac
-	else
-		echo "'$1' is not a valid file"
-	fi
+  if [ -f "$1" ] ; then
+    local filename=$(basename "$1")
+    local foldername="${filename%%.*}"
+    local fullpath=`perl -e 'use Cwd "abs_path";print abs_path(shift)' "$1"`
+    local didfolderexist=false
+    if [ -d "$foldername" ]; then
+      didfolderexist=true
+      read -p "$foldername already exists, do you want to overwrite it? (y/n) " -n 1
+      echo
+      if [[ $REPLY =~ ^[Nn]$ ]]; then
+        return
+      fi
+    fi
+    mkdir -p "$foldername" && cd "$foldername"
+    case $1 in
+      *.tar.bz2) tar xjf "$fullpath" ;;
+      *.tar.gz) tar xzf "$fullpath" ;;
+      *.tar.xz) tar Jxvf "$fullpath" ;;
+      *.tar.Z) tar xzf "$fullpath" ;;
+      *.tar) tar xf "$fullpath" ;;
+      *.taz) tar xzf "$fullpath" ;;
+      *.tb2) tar xjf "$fullpath" ;;
+      *.tbz) tar xjf "$fullpath" ;;
+      *.tbz2) tar xjf "$fullpath" ;;
+      *.tgz) tar xzf "$fullpath" ;;
+      *.txz) tar Jxvf "$fullpath" ;;
+      *.zip) unzip "$fullpath" ;;
+      *) echo "'$1' cannot be extracted via extract()" && cd .. && ! $didfolderexist && rm -r "$foldername" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
 }
 
 
 # Get a local ip address
 function localip() {
-	local interface="$1"
-	if [ "$#" -lt 1 ]; then
-		interface="eth0"
-	fi
-	if [[ "$OSTYPE" =~ ^darwin ]]; then
-		ipconfig getifaddr "$interface"
-	else
-		ifconfig "$interface" | awk '/inet/ { print $2 } ' | sed -e s/addr://
-	fi
+  local interface="$1"
+  if [ "$#" -lt 1 ]; then
+    interface="eth0"
+  fi
+  if [[ "$OSTYPE" =~ ^darwin ]]; then
+    ipconfig getifaddr "$interface"
+  else
+    ifconfig "$interface" | awk '/inet/ { print $2 } ' | sed -e s/addr://
+  fi
 }
 
 
@@ -132,62 +132,62 @@ function mux() {
 
 # Recursive cpplint
 function cpplintdir() {
-	if [ "$#" -lt 1 ] || [ ! -d "$1" ]; then
-		echo "usage: cpplintdir dir [options]";
-	else
-		FIND="find"
-		if [[ "$OSTYPE" =~ ^darwin ]]; then
-			FIND="gfind"
-		fi
+  if [ "$#" -lt 1 ] || [ ! -d "$1" ]; then
+    echo "usage: cpplintdir dir [options]";
+  else
+    FIND="find"
+    if [[ "$OSTYPE" =~ ^darwin ]]; then
+      FIND="gfind"
+    fi
 
-		if [[ "$#" -gt 1 ]]; then
-			cpplint "$2" `"$FIND" "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)'`
-		else
-			cpplint `"$FIND" "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)'`
-		fi
-	fi
+    if [[ "$#" -gt 1 ]]; then
+      cpplint "$2" `"$FIND" "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)'`
+    else
+      cpplint `"$FIND" "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)'`
+    fi
+  fi
 }
 
 
 # Recursive pep8 lint
 function pep8dir() {
-	if [ "$#" -lt 1 ] || [ ! -d "$1" ]; then
-		echo "usage: pep8dir dir [options]";
-	else
-		FIND="find"
-		if [[ "$OSTYPE" =~ ^darwin ]]; then
-			FIND="gfind"
-		fi
+  if [ "$#" -lt 1 ] || [ ! -d "$1" ]; then
+    echo "usage: pep8dir dir [options]";
+  else
+    FIND="find"
+    if [[ "$OSTYPE" =~ ^darwin ]]; then
+      FIND="gfind"
+    fi
 
-		if [[ "$#" -gt 1 ]]; then
-			"$FIND" "$1" -iname "*.py" -exec pep8 "$2" '{}' \;
-		else
-			"$FIND" "$1" -iname "*.py" -exec pep8 '{}' \;
-		fi
-	fi
+    if [[ "$#" -gt 1 ]]; then
+      "$FIND" "$1" -iname "*.py" -exec pep8 "$2" '{}' \;
+    else
+      "$FIND" "$1" -iname "*.py" -exec pep8 '{}' \;
+    fi
+  fi
 }
 
 
 # Set ROS variables
 function rosmasteruri() {
-	if [ "$#" -ne 2 ]; then
-		echo "usage: rosmasteruri [master_uri] [interface]";
-	else
-		echo "Running following commands:"
-		echo unset ROS_HOSTNAME;
-		echo ROS_MASTER_URI=http://"$1":11311;
-		if [[ "$OSTYPE" =~ ^darwin ]]; then
-			echo ROS_IP=`ipconfig getifaddr "$2"`
-		else
-			echo ROS_IP=`ifconfig "$2" | awk '/inet/ { print $2 } ' | sed -e s/addr://`
-		fi
+  if [ "$#" -ne 2 ]; then
+    echo "usage: rosmasteruri [master_uri] [interface]";
+  else
+    echo "Running following commands:"
+    echo unset ROS_HOSTNAME;
+    echo ROS_MASTER_URI=http://"$1":11311;
+    if [[ "$OSTYPE" =~ ^darwin ]]; then
+      echo ROS_IP=`ipconfig getifaddr "$2"`
+    else
+      echo ROS_IP=`ifconfig "$2" | awk '/inet/ { print $2 } ' | sed -e s/addr://`
+    fi
 
-		unset ROS_HOSTNAME;
-		export ROS_MASTER_URI=http://"$1":11311;
-		if [[ "$OSTYPE" =~ ^darwin ]]; then
-			export ROS_IP=`ipconfig getifaddr "$2"`
-		else
-			ROS_IP=`ifconfig "$2" | awk '/inet/ { print $2 } ' | sed -e s/addr://`
-		fi
-	fi
+    unset ROS_HOSTNAME;
+    export ROS_MASTER_URI=http://"$1":11311;
+    if [[ "$OSTYPE" =~ ^darwin ]]; then
+      export ROS_IP=`ipconfig getifaddr "$2"`
+    else
+      ROS_IP=`ifconfig "$2" | awk '/inet/ { print $2 } ' | sed -e s/addr://`
+    fi
+  fi
 }
