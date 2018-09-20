@@ -163,8 +163,7 @@ map <leader>n :NERDTreeToggle<CR>
 
 " Highlight
 " toggle `set list`
-nmap <leader>l :set list!<CR>:set number!<CR>
-set list!
+nmap <leader>l :set number!<CR>
 " use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 " invisible character colors
