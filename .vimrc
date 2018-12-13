@@ -17,12 +17,6 @@ if &term =~ '256color'
 endif
 
 
-" OSX
-if has ('macunix')
-  set mouse=a " Enable mouse
-endif
-
-
 " Packages
 " ctrlp
 let g:ctrlp_custom_ignore='node_modules'
@@ -46,6 +40,9 @@ set undodir=~/.vim/undo
 
 " Stuff
 set autochdir
+if !has('macunix')
+  autocmd VimEnter * set autochdir
+endif
 set autoindent " Always set autoindenting on
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode
 set clipboard=unnamed " Using mouse 3rd button click
@@ -61,6 +58,7 @@ set ignorecase " Ignore case when searching
 set incsearch " Show search matches as you type
 set ls=2 " Allways show status line
 set modeline " Display filename
+set mouse=a " Enable mouse
 set nowrap " Don't wrap lines
 set number " Dusplay line number
 " set paste! " Start with paste mode
