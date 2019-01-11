@@ -1,3 +1,5 @@
+"" GENERAL
+
 " Pathogen
 filetype off
 execute pathogen#infect()
@@ -17,7 +19,13 @@ if &term =~ '256color'
 endif
 
 
-" Packages
+" OSX
+if has ('macunix')
+  set mouse=a " Enable mouse
+endif
+
+
+" Package settings
 " ctrlp
 let g:ctrlp_custom_ignore='node_modules'
 let g:ctrlp_dotfiles=0
@@ -26,13 +34,13 @@ let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
 " vim-tmux-navigator
 " Update c-h/j/k/l\ in
-" ~/.vim/bundle/vim-tmux-navigator/plugin/tmux_navigator.vim to <Esc>h/j/k/l/\
+" ~/.vim/bundle/vim-tmux-navigator/plugin/tmux_navigator.vim to <ESC>h/j/k/l/\
 " vim-airline
 let g:airline#extensions#tabline#enabled=1
 let g:airline_theme='base16_ashes'
 
 
-" Local Dirs
+" Local directory settings
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 set undodir=~/.vim/undo
@@ -40,25 +48,26 @@ set undodir=~/.vim/undo
 
 " Stuff
 set autochdir
-if !has('macunix')
-  autocmd VimEnter * set autochdir
-endif
 set autoindent " Always set autoindenting on
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode
-set clipboard=unnamed " Using mouse 3rd button click
+if has('unnamedplus')
+  set clipboard+=unnamedplus " make default copy and paste to use clipboard
+else
+  set clipboard=unnamed " Using mouse 3rd button click
+endif
 set copyindent " Copy the previous indentation on autoindenting
 set cursorline " Highlight current line
 " set diffopt=filler " Add vertical spaces to keep right and left aligned
 set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
 set foldlevel=99
 set foldmethod=indent
+set formatoptions-=cro
 set hidden " Hides buffers instead of closing them
 set hlsearch " Highlight search terms
 set ignorecase " Ignore case when searching
 set incsearch " Show search matches as you type
 set ls=2 " Allways show status line
 set modeline " Display filename
-set mouse=a " Enable mouse
 set nowrap " Don't wrap lines
 set number " Dusplay line number
 " set paste! " Start with paste mode
@@ -75,22 +84,19 @@ set ttymouse=xterm " Set mouse type to xterm.
 set undofile " Persistent Undo.
 " set whichwrap+=<,>,h,l,[,] " Automatically wrap left and right
 set wildmode=longest,list,full " Tab completion
-if has('unnamedplus')
-  set clipboard+=unnamedplus " make default copy and paste to use clipboard
-endif
 
 
 
 "" KEY BINDINGS
 
-" Typo Proof
+" Typo proofers
 nnoremap ; :
 nnoremap <C-@> :set paste!<CR>
 " nnoremap <C-@> :set nopaste<CR> " <C-@> == <C-Space>
 command W w
 command Wq wq
 
-" Sudo Write (,W)
+" Sudo write (,W)
 noremap <leader>W :w !sudo tee %<CR>
 
 " Scrolling
@@ -139,26 +145,6 @@ map <Esc>k <C-W>k
 map <Esc>h <C-W>h
 map <Esc>l <C-W>l
 
-" General Dev
-" indent/unident block (,]) (,[)
-nnoremap <leader>] >i{<CR>
-nnoremap <leader>[ <i{<CR>
-" strip trailing whitespace (,ss)
-function! StripWhitespace ()
-  let save_cursor = getpos(".")
-  let old_query = getreg('/')
-  :%s/\s\+$//e
-  call setpos('.', save_cursor)
-  call setreg('/', old_query)
-endfunction
-noremap <leader>ss :call StripWhitespace ()<CR>
-" toggle folds (<Space>)
-nnoremap <silent> <space> :exe 'silent! normal! '.((foldclosed('.')>0)? 'zMzx' : 'zc')<CR>
-" mark jumping (line + col)
-nnoremap ' `
-" open NERDtree
-map <leader>n :NERDTreeToggle<CR>
-
 " Highlight
 " toggle `set list`
 nmap <leader>l :set number!<CR>
@@ -191,22 +177,45 @@ function ToggleWrap()
 endfunction
 :silent call ToggleWrap()
 
+" Misc
+" indent/unident block (,]) (,[)
+nnoremap <leader>] >i{<CR>
+nnoremap <leader>[ <i{<CR>
+" strip trailing whitespace (,ss)
+function! StripWhitespace ()
+let save_cursor = getpos(".")
+let old_query = getreg('/')
+:%s/\s\+$//e
+call setpos('.', save_cursor)
+call setreg('/', old_query)
+endfunction
+noremap <leader>ss :call StripWhitespace ()<CR>
+" toggle folds (<Space>)
+nnoremap <silent> <space> :exe 'silent! normal! '.((foldclosed('.')>0)? 'zMzx' : 'zc')<CR>
+" mark jumping (line + col)
+nnoremap ' `
+" open NERDtree
+map <leader>n :NERDTreeToggle<CR>
+
+
+
+"" FILE SETTINGS
+
 " Detect file changes
 autocmd FileChangedShell * echo "Warning: File changed on disk"
 
-" FileTypes
-" Only do this part when compiled with support for autocommands
-if has('autocmd')
+" FileType settings
+if has('autocmd')  " Only do this part when compiled with support for autocommands
   " Enable file type detection
   filetype on
   autocmd FileType cmake setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType cmake set commentstring=#\ %s
   autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
   autocmd BufRead,BufNewFile *.launch setfiletype roslaunch
 endif
-" Markdown
+
+" Ignore syntax highlighting for Markdown
 au BufRead,BufNewFile *.md set filetype=text
-" JSON
-au BufRead,BufNewFile *.json set ft=json syntax=javascript
