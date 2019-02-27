@@ -22,7 +22,7 @@ sudo apt update
 sudo apt install -y hub
 
 # Daily
-sudo apt install chromium-browser qtcreator gnote indicator-multiload unity-tweak-tool gnome-tweak-tool
+sudo apt install chromium-browser gnote indicator-multiload unity-tweak-tool gnome-tweak-tool
 if [[ $(lsb_release -rs) = "16.04" ]]; then
   # install synaptic
   sudo apt install -y apt-xapian-index && sudo update-apt-xapian-index -vf
