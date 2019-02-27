@@ -8,7 +8,6 @@ brew cask install sublime-text
 brew cask install visual-studio-code
 # browsers
 brew cask install google-chrome
-brew cask install chromium --force
 brew cask install firefox
 # misc.
 brew cask install gimp
