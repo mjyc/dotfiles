@@ -1,6 +1,6 @@
 # Programs
 if [[ "$OSTYPE" =~ ^darwin ]]; then
-	alias google-chrome='open -a "Google Chrome"'
+	alias google-chrome-stable='open -a "Google Chrome"'
 	alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 	alias updatedb='sudo /usr/libexec/locate.updatedb'
 else
@@ -8,7 +8,6 @@ else
 	alias pbcopy='xclip -selection clipboard'
 	alias pbpaste='xclip -selection clipboard -o'
 	alias trash='trash-put'
-	alias google-chrome='google-chrome-stable'
 fi
 
 # Enable color support of ls and also add handy aliases
