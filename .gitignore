@@ -16,8 +16,8 @@ Thumbs.db
 # Sublime workspace files
 *.sublime-workspace
 
-# QtCreator user files
-CMakeLists.txt.user
-
 # Visual Studio Code workspace settings folder
 *.vscode
+
+# NO
+node_modules
