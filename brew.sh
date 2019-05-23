@@ -45,8 +45,7 @@ brew install trash
 brew install reattach-to-user-namespace # must before tmux
 brew install tmux
 brew install ssh-copy-id
-brew install ffmpeg
-brew install gifsicle
+brew install ffmpeg --with-libvpx
 brew install icdiff
 
 # Remove outdated versions from the cellar
