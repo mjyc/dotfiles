@@ -1,4 +1,4 @@
-# homebrew
+# # homebrew
 # if [[ "$OSTYPE" =~ ^darwin ]]; then
   # /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 #fi
@@ -12,9 +12,9 @@ chmod +x ~/local/src/z/z.sh
 # also consider moving over your current .z file if possible. it's painful to rebuild :)
 
 
-# for the c alias (syntax highlighted cat)
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-  sudo easy_install Pygments
-else
-  sudo apt-get install python-pygments
-fi
+# # for the c alias (syntax highlighted cat)
+# if [[ "$OSTYPE" =~ ^darwin ]]; then
+#   sudo easy_install Pygments
+# else
+#   sudo apt-get install python-pygments
+# fi
