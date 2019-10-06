@@ -29,18 +29,6 @@ if [ -x /usr/local/bin/gdircolors ] || [ -x /usr/bin/dircolors ]; then
 	alias egrep='egrep --color=auto'
 fi
 
-# More ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l="ls -F1"
-alias lg="ls -go"
-
-# List only directories
-alias lsd='ls -l | grep "^d"'
-
-# `cat` with beautiful colors. requires Pygments installed.
-alias c='pygmentize -O style=default -f console256 -g'
-
 # Undo a `git push`
 alias undopush="git push -f origin HEAD^:master"
 
@@ -85,7 +73,6 @@ fi
 # Trash aliases (install trash first)
 alias trashtex='trash *.log *.aux *.nav *.out *.snm *.toc *.vrb *.bbl *.blg *.dvi *.synctex.gz *.fdb_latexmk *.fls' # use rvf for "rm"
 alias trashtexfull='trashtex; trash *.pdf'
-alias trashjavaclass='trash -fv *.class' # use rvf for "rm"
 alias trashvimswp="trash ~/.vim/swaps; mkdir ~/.vim/swaps"
 
 
@@ -103,6 +90,11 @@ alias ga="git add"
 alias gau="git add -u"
 alias gcim="git commit -m"
 alias gaucim="git add -u && git commit -m"
+alias ll='ls -alF'
+alias la='ls -A'
+alias l="ls -F1"
+alias lg="ls -go"
+alias lsd='ls -l | grep "^d"'
 alias s="subl"
 alias sa="subl -a"
 alias sn="subl -n"
