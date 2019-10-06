@@ -22,7 +22,7 @@ brew install wget --enable-iri
 brew install gnu-tar --with-default-names
 brew install gzip
 brew install watch
-# Install Bash 4
+# Install Bash 5
 # NOTE: Don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
 brew install bash
 brew install bash-completion
@@ -37,7 +37,7 @@ brew install homebrew/dupes/screen
 brew install git
 brew install hub
 brew install imagemagick --with-webp
-brew install node # This installs `npm` too using the recommended installation method
+# brew install node # use nvm instead
 brew install pv
 brew install rename
 brew install tree
@@ -47,6 +47,7 @@ brew install tmux
 brew install ssh-copy-id
 brew install ffmpeg --with-libvpx
 brew install icdiff
+brew install poppler
 
 # Remove outdated versions from the cellar
 brew cleanup
