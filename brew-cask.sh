@@ -12,4 +12,4 @@ brew cask install firefox
 # misc.
 brew cask install gimp
 brew cask install vlc
-brew cask install divvy
+brew cask install skim
