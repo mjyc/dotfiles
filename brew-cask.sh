@@ -1,5 +1,5 @@
 # Install it
-brew tap caskroom/cask
+brew tap homebrew/cask
 
 # dev
 brew cask install dropbox

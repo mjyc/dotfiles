@@ -1,7 +1,7 @@
-# # homebrew
-# if [[ "$OSTYPE" =~ ^darwin ]]; then
-  # /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-#fi
+# homebrew
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
 
 
 # directory jumper https://github.com/rupa/z

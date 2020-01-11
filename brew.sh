@@ -1,14 +1,14 @@
 #!/bin/bash
 # http://www.topbug.net/blog/2013/04/14/install-and-use-gnu-command-line-tools-in-mac-os-x/
 
-# Make sure we’re using the latest Homebrew
+# Make sure we're using the latest Homebrew
 brew update
 
 # Upgrade any already-installed formulae
 # brew upgrade
 
 # Install GNU core utilities
-# NOET: Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+# NOET: Don't forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
 # Install some other useful utilities like `sponge`
 brew install moreutils
@@ -23,7 +23,7 @@ brew install gnu-tar --with-default-names
 brew install gzip
 brew install watch
 # Install Bash 5
-# NOTE: Don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
+# NOTE: Don't forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
 brew install bash
 brew install bash-completion
 
