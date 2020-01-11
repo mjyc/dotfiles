@@ -15,11 +15,11 @@ brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
 brew install findutils
 # Install GNU `sed` to overwrite the built-in `sed`
-brew install gnu-sed --default-names
+brew install gnu-sed
 # Install wget with IRI support
-brew install wget --enable-iri
+brew install wget
 # Install more linux programs...
-brew install gnu-tar --with-default-names
+brew install gnu-tar
 brew install gzip
 brew install watch
 # Install Bash 5
@@ -28,15 +28,15 @@ brew install bash
 brew install bash-completion
 
 # Install dev tools
-brew install vim --override-system-vi
-brew install macvim --override-system-vim --custom-system-icons
+brew install vim
+brew install macvim
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/screen
 
 # Install the rest
 brew install git
 brew install hub
-brew install imagemagick --with-webp
+brew install imagemagick
 # brew install node # use nvm instead
 brew install pv
 brew install rename
@@ -45,7 +45,7 @@ brew install trash
 brew install reattach-to-user-namespace # must before tmux
 brew install tmux
 brew install ssh-copy-id
-brew install ffmpeg --with-libvpx
+brew install ffmpeg
 brew install icdiff
 brew install poppler
 
