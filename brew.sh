@@ -8,7 +8,7 @@ brew update
 # brew upgrade
 
 # Install GNU core utilities
-# NOET: Don't forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+# - don't forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`
 brew install coreutils
 # Install some other useful utilities like `sponge`
 brew install moreutils
@@ -18,29 +18,25 @@ brew install findutils
 brew install gnu-sed
 # Install wget with IRI support
 brew install wget
-# Install more linux programs...
+# Install more linux utilities
+brew install grep
 brew install gnu-tar
 brew install gzip
 brew install watch
+brew install rename
+brew install tree
 # Install Bash 5
-# NOTE: Don't forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
+# - don't forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`
 brew install bash
 brew install bash-completion
-
 # Install dev tools
 brew install vim
 brew install macvim
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/screen
-
-# Install the rest
 brew install git
 brew install hub
 brew install imagemagick
 # brew install node # use nvm instead
 brew install pv
-brew install rename
-brew install tree
 brew install trash
 brew install reattach-to-user-namespace # must before tmux
 brew install tmux
