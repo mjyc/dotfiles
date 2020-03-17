@@ -6,12 +6,13 @@
 	ci = commit
 	br = branch
 	co = checkout
-	c = commit -am
 	up = pull
 	p = push
+	c = commit -am
 	s = status -s
 	df = diff --color --color-words --abbrev
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	issue = !/Users/mjyc/repos/git-issue/git-issue.sh
 [core]
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
