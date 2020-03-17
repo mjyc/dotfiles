@@ -59,7 +59,7 @@ alias fs="stat -f \"%z bytes\""
 
 # Empty the Trash on all mounted volumes and the main HDD
 if [[ "$OSTYPE" =~ ^darwin ]]; then
-	alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
+	alias emptytrash="rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
 else
 	alias emptytrash="trash-empty"
 fi
