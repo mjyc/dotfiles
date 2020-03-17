@@ -31,7 +31,7 @@ brew install bash
 brew install bash-completion
 # Install dev tools
 brew install vim
-brew install macvim
+# brew install macvim # conflicts with vim
 brew install git
 brew install hub
 brew install imagemagick
