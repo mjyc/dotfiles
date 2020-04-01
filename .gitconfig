@@ -11,8 +11,9 @@
 	c = commit -am
 	s = status -s
 	df = diff --color --color-words --abbrev
+	l = log --oneline -n 15
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-	issue = !/Users/mjyc/repos/git-issue/git-issue.sh
+	issue = !$HOME/local/src/git-issue/git-issue.sh
 [core]
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
