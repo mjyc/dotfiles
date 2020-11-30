@@ -66,20 +66,6 @@ function extract() {
 }
 
 
-# Get a local ip address
-function localip() {
-  local interface="$1"
-  if [ "$#" -lt 1 ]; then
-    interface="eth0"
-  fi
-  if [[ "$OSTYPE" =~ ^darwin ]]; then
-    ipconfig getifaddr "$interface"
-  else
-    ifconfig "$interface" | awk '/inet/ { print $2 } ' | sed -e s/addr://
-  fi
-}
-
-
 # Create a new tmux session or attach the session with a given sessionname
 function mux() {
     local sessionname="$1"
@@ -92,68 +78,4 @@ function mux() {
     fi
     tmux select-window -t "$sessionname":1
     tmux attach -d -t "$sessionname"
-}
-
-
-
-# Recursive cpplint
-function cpplintdir() {
-  if [ "$#" -lt 1 ] || [ ! -d "$1" ]; then
-    echo "usage: cpplintdir dir [options]";
-  else
-    FIND="find"
-    if [[ "$OSTYPE" =~ ^darwin ]]; then
-      FIND="gfind"
-    fi
-
-    if [[ "$#" -gt 1 ]]; then
-      cpplint "$2" `"$FIND" "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)'`
-    else
-      cpplint `"$FIND" "$1" -regex '.*\.\(cpp\|h\|cc\|hh\)'`
-    fi
-  fi
-}
-
-
-# Recursive pep8 lint
-function pep8dir() {
-  if [ "$#" -lt 1 ] || [ ! -d "$1" ]; then
-    echo "usage: pep8dir dir [options]";
-  else
-    FIND="find"
-    if [[ "$OSTYPE" =~ ^darwin ]]; then
-      FIND="gfind"
-    fi
-
-    if [[ "$#" -gt 1 ]]; then
-      "$FIND" "$1" -iname "*.py" -exec pep8 "$2" '{}' \;
-    else
-      "$FIND" "$1" -iname "*.py" -exec pep8 '{}' \;
-    fi
-  fi
-}
-
-
-# Set ROS variables
-function rosmasteruri() {
-  if [ "$#" -ne 2 ]; then
-    echo "usage: rosmasteruri [master_uri] [interface]";
-  else
-    echo "Running following commands:"
-    echo unset ROS_HOSTNAME;
-    echo ROS_MASTER_URI=http://"$1":11311;
-    if [[ "$OSTYPE" =~ ^darwin ]]; then
-      echo ROS_IP=`ipconfig getifaddr "$2"`
-    else
-      echo ROS_IP=`ifconfig "$2" | awk '/inet/ { print $2 } ' | sed -e s/addr://`
-    fi
-
-    unset ROS_HOSTNAME;
-    export ROS_MASTER_URI=http://"$1":11311;
-    if [[ "$OSTYPE" =~ ^darwin ]]; then
-      export ROS_IP=`ipconfig getifaddr "$2"`
-    else
-      ROS_IP=`ifconfig "$2" | awk '/inet/ { print $2 } ' | sed -e s/addr://`
-    fi
-  fi
 }

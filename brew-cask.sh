@@ -10,6 +10,6 @@ brew cask install visual-studio-code
 brew cask install google-chrome
 brew cask install firefox
 # misc.
-brew cask install gimp
-brew cask install vlc
+# brew cask install gimp
+# brew cask install vlc
 brew cask install skim

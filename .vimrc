@@ -29,15 +29,17 @@ endif
 " ctrlp
 let g:ctrlp_custom_ignore='node_modules'
 let g:ctrlp_dotfiles=0
+" nerdtree
+map <leader>n :NERDTreeToggle<CR>
+" vim-airline
+let g:airline#extensions#tabline#enabled=1
+let g:airline_theme='base16_ashes'
 " vim-multiple-cursors
 let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
 " vim-tmux-navigator
 " Update c-h/j/k/l\ in
 " ~/.vim/bundle/vim-tmux-navigator/plugin/tmux_navigator.vim to <ESC>h/j/k/l/\
-" vim-airline
-let g:airline#extensions#tabline#enabled=1
-let g:airline_theme='base16_ashes'
 
 
 " Local directory settings
@@ -194,8 +196,6 @@ noremap <leader>ss :call StripWhitespace ()<CR>
 nnoremap <silent> <space> :exe 'silent! normal! '.((foldclosed('.')>0)? 'zMzx' : 'zc')<CR>
 " mark jumping (line + col)
 nnoremap ' `
-" open NERDtree
-map <leader>n :NERDTreeToggle<CR>
 
 
 
@@ -219,3 +219,4 @@ endif
 
 " Ignore syntax highlighting for Markdown
 au BufRead,BufNewFile *.md set filetype=text
+

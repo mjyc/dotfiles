@@ -60,12 +60,12 @@ function git_info() {
 
 # To display ROS info (http://wiki.ros.org/ROS/Introduction)
 # defind a like below in ~/.extra and set $ROSINFO to true
-# function ros_info() {
-#   if [ $ROS_MASTER_URI != "http://$ROS_IP:11311" ]; then
-#     ROSMASTER=$ROS_MASTER_URI
-#     echo " "${WHITE}using ${PURPLE}$ROSMASTER
-#   fi
-# }
+function ros_info() {
+  if [ $ROS_MASTER_URI != "http://$ROS_IP:11311" ]; then
+    ROSMASTER=$ROS_MASTER_URI
+    echo " "${WHITE}using ${PURPLE}$ROSMASTER
+  fi
+}
 
 if [ "$PROMPT_ROS" = true ]; then
 	PS1="\[\e]2;$PWD\[\a\]\[\e]1;\]$(basename "$(dirname "$PWD")")/\W\[\a\]${BOLD}\$(usernamehost)\[$GREEN\]\w\$(git_info)\$(ros_info)\[$WHITE\]\n\$ \[$RESET\]"
