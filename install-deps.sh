@@ -1,8 +1,8 @@
+# IMPORTANT! doesn't work for M1 machines; see https://github.com/Homebrew/discussions/discussions/153#discussioncomment-132135
 # homebrew
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-  # see https://github.com/Homebrew/discussions/discussions/153#discussioncomment-132135
-  # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
+# if [[ "$OSTYPE" =~ ^darwin ]]; then
+#   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# fi
 
 
 # directory jumper https://github.com/rupa/z
@@ -21,11 +21,3 @@ chmod +x ~/local/src/z/z.sh
 # # export GH_CURL_AUTH="Authorization: token  {github token}"
 # # export PAGER="cat"
 # # source $HOME/local/src/git-issue/gi-completion.sh
-
-
-# # for the c alias (syntax highlighted cat)
-# if [[ "$OSTYPE" =~ ^darwin ]]; then
-#   sudo easy_install Pygments
-# else
-#   sudo apt-get install python-pygments
-# fi

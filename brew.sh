@@ -1,4 +1,4 @@
-# IMPORTANT! doesn't work for M1
+# IMPORTANT! doesn't work for M1 machines
 
 #!/bin/bash
 
