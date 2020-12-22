@@ -93,10 +93,3 @@ alias ll='ls -alF'
 alias l="ls -F1"
 # alias lg="ls -go"
 # alias lsd='ls -l | grep "^d"'
-# move these to .extra
-# alias g="git"
-# alias s="subl"
-# alias sa="subl -a"
-# alias sn="subl -n"
-# alias t="tmux"
-# alias v="vim"

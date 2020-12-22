@@ -60,7 +60,7 @@ endif
 set copyindent " Copy the previous indentation on autoindenting
 set cursorline " Highlight current line
 " set diffopt=filler " Add vertical spaces to keep right and left aligned
-set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
+" set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
 set foldlevel=99
 set foldmethod=indent
 set formatoptions-=cro
