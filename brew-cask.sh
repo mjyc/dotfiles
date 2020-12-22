@@ -1,15 +1,11 @@
-# Install it
-brew tap homebrew/cask
-
 # dev
-brew cask install dropbox
-brew cask install iterm2
-brew cask install sublime-text
-brew cask install visual-studio-code
+brew install --cask dropbox
+brew install --cask iterm2
+brew install --cask sublime-text
+brew install --cask visual-studio-code
 # browsers
-brew cask install google-chrome
-brew cask install firefox
+brew install --cask google-chrome
+brew install --cask firefox
+brew install --cask firefox-developer-edition
 # misc.
-# brew cask install gimp
-# brew cask install vlc
-brew cask install skim
+brew install --cask skim
