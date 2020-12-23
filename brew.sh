@@ -1,4 +1,4 @@
-# IMPORTANT! doesn't work for M1 machines
+# IMPORTANT! doesn't work for Apple Silicon (M1) machines
 
 #!/bin/bash
 

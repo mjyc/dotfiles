@@ -1,4 +1,4 @@
-# IMPORTANT! doesn't work for M1 machines; see https://github.com/Homebrew/discussions/discussions/153#discussioncomment-132135
+# IMPORTANT! doesn't work for Apple Silicon (M1) machines; see https://github.com/Homebrew/discussions/discussions/153#discussioncomment-132135
 # homebrew
 # if [[ "$OSTYPE" =~ ^darwin ]]; then
 #   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
