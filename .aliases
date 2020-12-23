@@ -11,15 +11,15 @@ else
 fi
 
 # Enable color support of ls and also add handy aliases
-if [ -x /usr/local/bin/gdircolors ] || [ -x /usr/bin/dircolors ]; then
+if [[ -x /usr/local/bin/gdircolors ]] || [[ -x /usr/bin/dircolors ]]; then
 	if [[ "$OSTYPE" =~ ^darwin ]]; then
 		test -r ~/.dircolors && eval "$(gdircolors -b ~/.dircolors)" || eval "$(gdircolors -b)"
-		alias ls='gls --color=auto'
-		alias dir='gdir --color=auto'
-		alias vdir='gvdir --color=auto'
+		alias gls='gls --color=auto'
+		alias gdir='gdir --color=auto'
+		alias gvdir='gvdir --color=auto'
 	else
 		test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-		alias ls='ls --color=auto'
+		alias ls='ls -G'
 		alias dir='dir --color=auto'
 		alias vdir='vdir --color=auto'
 	fi
@@ -27,6 +27,11 @@ if [ -x /usr/local/bin/gdircolors ] || [ -x /usr/bin/dircolors ]; then
 	alias grep='grep --color=auto'
 	alias fgrep='fgrep --color=auto'
 	alias egrep='egrep --color=auto'
+else
+	if [[ "$OSTYPE" =~ ^darwin ]]; then
+		alias ls='ls -G'
+		alias grep='grep --colour'
+	fi
 fi
 
 # Undo a `git push`
@@ -79,7 +84,7 @@ alias trashvimswp="trash ~/.vim/swaps && mkdir ~/.vim/swaps"
 # SHORTCUTS
 alias gst="git st"
 alias gd="git diff"
-# alias gs="git s"
+alias gs="git s"
 # alias gdf="git df"
 alias gcdiff="git difftool --extcmd icdiff"
 alias gl="git l"
@@ -93,3 +98,4 @@ alias ll='ls -alF'
 alias l="ls -F1"
 # alias lg="ls -go"
 # alias lsd='ls -l | grep "^d"'
+
