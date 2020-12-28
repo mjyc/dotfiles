@@ -62,12 +62,12 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 # File size
 alias fs="stat -f \"%z bytes\""
 
-# Empty the Trash on all mounted volumes and the main HDD
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-	alias emptytrash="rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
-else
-	alias emptytrash="trash-empty"
-fi
+# # Empty the Trash on all mounted volumes and the main HDD
+# if [[ "$OSTYPE" =~ ^darwin ]]; then
+# 	alias emptytrash="rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
+# else
+# 	alias emptytrash="trash-empty"
+# fi
 
 # Hide/show all desktop icons (useful when presenting)
 if [[ "$OSTYPE" =~ ^darwin ]]; then
