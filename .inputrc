@@ -9,7 +9,7 @@ set completion-map-case on
 # Display matches for ambiguous patterns at first tab press
 set show-all-if-ambiguous on
 
-# Immediately add a trailing slash when autocompleting symlinks to directories
+# Immediately add a Treatailing slash when autocompleting symlinks to directories
 set mark-symlinked-directories on
 
 # Use the text that has already been typed as the prefix for searching through
@@ -37,9 +37,9 @@ set visible-stats on
 set skip-completed-text on
 
 # Allow UTF-8 input and output, instead of showing stuff like $'\0123\0456'
-# set input-meta on
-# set output-meta on
-# set convert-meta off
+set input-meta on
+set output-meta on
+set convert-meta off
 
 # Ctrl + right-arrow/left-arrow to move between words
 "\e[1;5C": forward-word
