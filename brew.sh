@@ -16,11 +16,11 @@
 # brew install node  # use nvm instead
 # brew install reattach-to-user-namespace # must be run before tmux
 # brew install tmux
-# brew install trash
+# brew install trash-cli
 # brew install icdiff
-# brew install imagemagick
 # brew install ssh-copy-id
 # brew install poppler
+# brew install imagemagick
 
 # Remove outdated versions from the cellar
 # brew cleanup

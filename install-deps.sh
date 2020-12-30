@@ -13,6 +13,13 @@ chmod +x ~/local/src/z/z.sh
 # also consider moving over your current .z file if possible. it's painful to rebuild :)
 
 
+# icdiff https://www.jefftk.com/icdiff
+if [ ! -d ~/local/bin ]; then mkdir -p ~/local/bin; fi;
+curl -s https://raw.githubusercontent.com/jeffkaufman/icdiff/release-1.9.2/icdiff \
+  | tee ~/local/bin/icdiff > /dev/null \
+  && chmod ugo+rx ~/local/bin/icdiff
+
+
 # # git-issue
 # git clone  https://github.com/dspinellis/git-issue.git
 # # add the following in
