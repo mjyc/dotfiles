@@ -5,27 +5,10 @@
 # Ask for the administrator password upfront
 sudo -v
 
-# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
+# Keep-alive: update existing `sudo` time stamp until `ubuntu` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+sudo apt update
+
 # Essentials
-sudo apt install -y ssh network-manager-openvpn-gnome curl mosh synaptic vim vim-gnome xclip trash-cli tmux
-
-# TODO: update this
-# ## install hub
-# sudo add-apt-repository ppa:cpick/hub -y
-# sudo apt update
-# sudo apt install -y hub
-
-# TODO: revisit this...
-# # Daily
-# sudo apt install chromium-browser indicator-multiload
-# if [[ $(lsb_release -rs) = "16.04" ]]; then
-#   # install synaptic
-#   sudo apt install -y apt-xapian-index && sudo update-apt-xapian-index -vf
-# fi
-# TODO: finish scriptizing language setup; installing language-pack-ko-base pkg alone does not completes
-
-# For Macbook Pro 11-3
-# sudo apt install -y bcmwl-kernel-source nvidia-375
-# TODO: finish scriptizing installing addtional drivers
+sudo apt install -y openssh-server net-tools curl git vim trash-cli tmux xclip
