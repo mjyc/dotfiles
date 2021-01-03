@@ -85,7 +85,7 @@ alias trashvimswp="trash ~/.vim/swaps && mkdir ~/.vim/swaps"
 alias gst="git st"
 alias gd="git diff"
 alias gs="git s"
-# alias gdf="git df"
+alias gdf="git df"
 alias gcdiff="git difftool --extcmd icdiff"
 alias gl="git l"
 alias glg="git lg"
@@ -96,6 +96,6 @@ alias gaucim="git add -u && git commit -m"
 alias ll='ls -alF'
 # alias la='ls -A'
 alias l="ls -F1"
-# alias lg="ls -go"
-# alias lsd='ls -l | grep "^d"'
+alias lg="ls -go"
+alias lsd='ls -l | grep "^d"'
 
