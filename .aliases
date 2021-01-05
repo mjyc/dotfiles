@@ -7,7 +7,6 @@ else
 	# Simulates pbcopy. requires xclip installed.
 	alias pbcopy='xclip -selection clipboard'
 	alias pbpaste='xclip -selection clipboard -o'
-	alias trash='trash-put'
 fi
 
 # Enable color support of ls and also add handy aliases
@@ -19,7 +18,7 @@ if [[ -x /usr/local/bin/gdircolors ]] || [[ -x /usr/bin/dircolors ]]; then
 		alias gvdir='gvdir --color=auto'
 	else
 		test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-		alias ls='ls -G'
+		alias ls='ls --color=auto'
 		alias dir='dir --color=auto'
 		alias vdir='vdir --color=auto'
 	fi
