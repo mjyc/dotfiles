@@ -61,7 +61,7 @@ function git_info() {
 # To display ROS info (http://wiki.ros.org/ROS/Introduction)
 # defind a like below in ~/.extra and set $ROSINFO to true
 function ros_info() {
-  if [ $ROS_MASTER_URI != "http://$ROS_IP:11311" ]; then
+  if [ "$ROS_MASTER_URI" != "http://$ROS_IP:11311" ]; then
     ROSMASTER=$ROS_MASTER_URI
     echo " "${WHITE}using ${PURPLE}$ROSMASTER
   fi
