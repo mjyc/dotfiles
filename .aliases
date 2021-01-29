@@ -7,7 +7,6 @@ else
 	# Simulates pbcopy. requires xclip installed.
 	alias pbcopy='xclip -selection clipboard'
 	alias pbpaste='xclip -selection clipboard -o'
-	alias trash='trash-put'
 fi
 
 # Enable color support of ls and also add handy aliases
@@ -62,13 +61,6 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 # File size
 alias fs="stat -f \"%z bytes\""
 
-# # Empty the Trash on all mounted volumes and the main HDD
-# if [[ "$OSTYPE" =~ ^darwin ]]; then
-# 	alias emptytrash="rm -rfv /Volumes/*/.Trashes; rm -rfv ~/.Trash"
-# else
-# 	alias emptytrash="trash-empty"
-# fi
-
 # Hide/show all desktop icons (useful when presenting)
 if [[ "$OSTYPE" =~ ^darwin ]]; then
 	alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
@@ -76,9 +68,9 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 fi
 
 # Trash aliases (install trash first)
-alias trashtex='trash *.log *.aux *.nav *.out *.snm *.toc *.vrb *.bbl *.blg *.dvi *.synctex.gz *.fdb_latexmk *.fls' # use rvf for "rm"
+alias trashtex='trash-put *.log *.aux *.nav *.out *.snm *.toc *.vrb *.bbl *.blg *.dvi *.synctex.gz *.fdb_latexmk *.fls' # use rvf for "rm"
 alias trashtexfull='trashtex && trash *.pdf'
-alias trashvimswp="trash ~/.vim/swaps && mkdir ~/.vim/swaps"
+alias trashvimswp="trash-put ~/.vim/swaps && mkdir ~/.vim/swaps"
 
 
 # SHORTCUTS
@@ -93,9 +85,9 @@ alias glg="git lg"
 alias gau="git add -u"
 alias gcim="git commit -m"
 alias gaucim="git add -u && git commit -m"
-alias ll='ls -alF'
-# alias la='ls -A'
 alias l="ls -F1"
 alias lg="ls -go"
+alias lt="l -t"
+alias ll="ls -alF"
+alias ltt="ll -t"
 alias lsd='ls -l | grep "^d"'
-
