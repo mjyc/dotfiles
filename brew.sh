@@ -13,14 +13,12 @@
 # brew install vim  # use system vim
 # brew install git  # use system vim
 # brew install hub
-# brew install node  # use nvm instead
+# brew install z
 # brew install reattach-to-user-namespace # must be run before tmux
 # brew install tmux
 # brew install trash-cli
 # brew install icdiff
 # brew install ssh-copy-id
-# brew install poppler
-# brew install imagemagick
 
 # Remove outdated versions from the cellar
 # brew cleanup
