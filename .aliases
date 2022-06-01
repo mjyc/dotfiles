@@ -67,13 +67,15 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 	alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 fi
 
+
+# SHORTCUTS
+
 # Trash aliases (install trash first)
 alias trashtex='trash-put *.log *.aux *.nav *.out *.snm *.toc *.vrb *.bbl *.blg *.dvi *.synctex.gz *.fdb_latexmk *.fls' # use rvf for "rm"
 alias trashtexfull='trashtex && trash *.pdf'
 alias trashvimswp="trash-put ~/.vim/swaps && mkdir ~/.vim/swaps"
 
-
-# SHORTCUTS
+# Git alias
 alias gst="git st"
 alias gd="git diff"
 alias gs="git s"
@@ -81,7 +83,7 @@ alias gdf="git df"
 alias gcdiff="git difftool --extcmd icdiff"
 alias gl="git l"
 alias glg="git lg"
-# alias ga="git add"
+alias ga="git add"
 alias gau="git add -u"
 alias gcim="git commit -m"
 alias gaucim="git add -u && git commit -m"
@@ -89,5 +91,5 @@ alias l="ls -F1"
 alias lg="ls -go"
 alias lt="l -t"
 alias ll="ls -alF"
-alias ltt="ll -t"
+alias llt="ll -t"
 alias lsd='ls -l | grep "^d"'
