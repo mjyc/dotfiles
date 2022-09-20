@@ -75,7 +75,7 @@ alias trashtex='trash-put *.log *.aux *.nav *.out *.snm *.toc *.vrb *.bbl *.blg 
 alias trashtexfull='trashtex && trash *.pdf'
 alias trashvimswp="trash-put ~/.vim/swaps && mkdir ~/.vim/swaps"
 
-# Git alias
+# Git aliases
 alias gst="git st"
 alias gd="git diff"
 alias gs="git s"
@@ -87,6 +87,8 @@ alias ga="git add"
 alias gau="git add -u"
 alias gcim="git commit -m"
 alias gaucim="git add -u && git commit -m"
+
+# ls aliases
 alias l="ls -F1"
 alias lg="ls -go"
 alias lt="l -t"
