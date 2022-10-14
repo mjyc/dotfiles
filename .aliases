@@ -67,15 +67,24 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 	alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 fi
 
+# Preserve timestamp (-p) and interactively confirm (-i)
+alias cp='cp -ip'
 
-# SHORTCUTS
+# Interactively confirm move (-i)
+alias mv='mv -i'
 
-# Trash aliases (install trash first)
-alias trashtex='trash-put *.log *.aux *.nav *.out *.snm *.toc *.vrb *.bbl *.blg *.dvi *.synctex.gz *.fdb_latexmk *.fls' # use rvf for "rm"
-alias trashtexfull='trashtex && trash *.pdf'
-alias trashvimswp="trash-put ~/.vim/swaps && mkdir ~/.vim/swaps"
+# Interactively confirm remove (-i)
+alias rm='rm -i'
 
-# Git aliases
+# ls aliases
+alias l="ls -F1"
+alias lg="ls -go"
+alias lt="l -t"
+alias ll="ls -alF"
+alias llt="ll -t"
+alias lsd='ls -l | grep "^d"'
+
+# git aliases
 alias gst="git st"
 alias gd="git diff"
 alias gs="git s"
@@ -88,10 +97,7 @@ alias gau="git add -u"
 alias gcim="git commit -m"
 alias gaucim="git add -u && git commit -m"
 
-# ls aliases
-alias l="ls -F1"
-alias lg="ls -go"
-alias lt="l -t"
-alias ll="ls -alF"
-alias llt="ll -t"
-alias lsd='ls -l | grep "^d"'
+# trash-put aliases
+alias trashtex='trash-put *.log *.aux *.nav *.out *.snm *.toc *.vrb *.bbl *.blg *.dvi *.synctex.gz *.fdb_latexmk *.fls' # use rvf for "rm"
+alias trashtexfull='trashtex && trash *.pdf'
+alias trashvimswp="trash-put ~/.vim/swaps && mkdir ~/.vim/swaps"
