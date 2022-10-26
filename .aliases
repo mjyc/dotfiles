@@ -67,15 +67,6 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 	alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 fi
 
-# Preserve timestamp (-p) and interactively confirm (-i)
-alias cp='cp -ip'
-
-# Interactively confirm move (-i)
-alias mv='mv -i'
-
-# Interactively confirm remove (-i)
-alias rm='rm -i'
-
 # ls aliases
 alias l="ls -F1"
 alias lg="ls -go"
