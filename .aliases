@@ -28,7 +28,7 @@ if [[ -x /usr/local/bin/gdircolors ]] || [[ -x /usr/bin/dircolors ]]; then
 	alias egrep='egrep --color=auto'
 else
 	if [[ "$OSTYPE" =~ ^darwin ]]; then
-        type foo >/dev/null || alias ls='ls -G'
+        type ls >/dev/null || alias ls='ls -G'
 		alias grep='grep --colour'
 	fi
 fi
