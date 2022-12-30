@@ -5,9 +5,6 @@ for file in ~/.{extra,bash_prompt,exports,aliases,functions}; do
 done
 unset file
 
-# init z   https://github.com/rupa/z
-. ~/local/src/z/z.sh
-
 # append to the history file, don't overwrite it
 shopt -s histappend
 
