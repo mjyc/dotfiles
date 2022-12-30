@@ -6,5 +6,3 @@ brew install --cask visual-studio-code
 # browsers
 brew install --cask google-chrome
 brew install --cask firefox
-# misc.
-brew install --cask skim
