@@ -1,0 +1,21 @@
+# -------
+# Aliases
+# -------
+
+# shortcuts
+alias t="tmux"
+alias v="vim"
+alias g="git"
+alias ls="exa"
+
+# files
+alias e="vim ~/.zextra"
+
+# ---------
+# Dev Tools
+# ---------
+
+# cli
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(starship init zsh)"
+
