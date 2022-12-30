@@ -5,6 +5,11 @@ for file in ~/.{zextra,aliases}; do
 done
 unset file
 
+# init z   https://github.com/rupa/z
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+	. $(brew --prefix)/etc/profile.d/z.sh
+fi
+
 # append to the history file, don't overwrite it
 setopt APPEND_HISTORY
 
