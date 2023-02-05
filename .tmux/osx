@@ -1,3 +1,1 @@
-# IMPORTANT! doesn't work for Apple Silicon (M1) machines
-# set-option -g default-command "reattach-to-user-namespace -l bash" # depreciated? https://github.com/tmux-plugins/tmux-sensible/issues/42
-
+# empty
