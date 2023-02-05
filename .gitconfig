@@ -32,10 +32,6 @@
 	added = yellow
 	changed = green
 	untracked = cyan
-# [filter "media"]
-# 	required = true
-# 	clean = git media clean %f
-# 	smudge = git media smudge %f
 [help]
 	autocorrect = 1
 [push]
