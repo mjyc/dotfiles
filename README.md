@@ -13,10 +13,10 @@ Toss it into a file called `.extra` which you do not commit to this repo and jus
 
 ### Ubuntu settings
 
-`.ubuntu` is a script that sets up freshly installed Ubuntu 14.04. There are some notes about how to manually instal more programs. You can simply run:
+`ubuntu` is a script that sets up freshly installed Ubuntu 20.04. There are some notes about how to manually instal more programs. You can simply run:
 
 ```bash
-./.ubuntu
+./ubuntu
 ```
 
 
