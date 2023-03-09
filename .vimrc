@@ -38,8 +38,12 @@ let g:airline_theme='base16_ashes'
 let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
 " vim-tmux-navigator
-" Update c-h/j/k/l\ in
-" ~/.vim/bundle/vim-tmux-navigator/plugin/tmux_navigator.vim to <ESC>h/j/k/l/\
+let g:tmux_navigator_no_mappings=1
+nnoremap <silent> <Esc>h :TmuxNavigateLeft<cr>
+nnoremap <silent> <Esc>j :TmuxNavigateDown<cr>
+nnoremap <silent> <Esc>k :TmuxNavigateUp<cr>
+nnoremap <silent> <Esc>l :TmuxNavigateRight<cr>
+nnoremap <silent> <Esc>\ :TmuxNavigatePrevious<cr>
 
 
 " Local directory settings
@@ -140,12 +144,6 @@ imap kj <Esc>
 map <C-c> <Esc>
 inoremap <silent> <Esc> <Esc>`^
 set timeoutlen=100 ttimeoutlen=1
-
-" Windows
-map <Esc>j <C-W>j
-map <Esc>k <C-W>k
-map <Esc>h <C-W>h
-map <Esc>l <C-W>l
 
 " Highlight
 " toggle `set list`
