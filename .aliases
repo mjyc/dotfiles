@@ -57,7 +57,7 @@ fi
 
 # ls aliases
 alias l="ls -F1"
-alias lt="l -t"
+alias la="ls -F1a"
 alias ll="ls -l"
 alias lla="ll -a"
 alias llt="ll -t"
