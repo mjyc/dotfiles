@@ -1,3 +1,9 @@
+[submodule ".vim/bundle/ctrlp.vim"]
+       path = .vim/bundle/ctrlp.vim
+       url = https://github.com/kien/ctrlp.vim
+[submodule ".vim/bundle/nerdtree"]
+       path = .vim/bundle/nerdtree
+       url = https://github.com/scrooloose/nerdtree
 [submodule ".vim/bundle/vim-commentary"]
     path = .vim/bundle/vim-commentary
     url = https://github.com/tpope/vim-commentary
@@ -14,3 +20,9 @@
 [submodule ".vim/bundle/vim-bufkill"]
     path = .vim/bundle/vim-bufkill
     url = https://github.com/qpkorr/vim-bufkill
+[submodule ".vim/bundle/vim-airline-themes"]
+       path = .vim/bundle/vim-airline-themes
+       url = https://github.com/vim-airline/vim-airline-themes
+[submodule ".vim/bundle/vim-airline"]
+       path = .vim/bundle/vim-airline
+       url = https://github.com/vim-airline/vim-airline
