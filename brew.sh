@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Make sure we're using the latest Homebrew
 brew update
@@ -14,7 +14,6 @@ brew install z
 brew install tmux
 brew install trash-cli
 brew install icdiff
-brew install ssh-copy-id
 brew install fzf
 brew install rigrep
 brew install fd

@@ -5,20 +5,11 @@ But, I'm quite proud of my [ROS](http://www.ros.org/about-ros/)-[prompt](https:/
 
 ## install the necessary apps
 
-My basic setup is captured in `install-deps.sh` which adds homebrew, z, etc.
+Run `install-deps.sh`
 
 ## private config
 
 Toss it into a file called `.extra` which you do not commit to this repo and just keep in your `~/`
-
-### Ubuntu settings
-
-`ubuntu` is a script that sets up freshly installed Ubuntu 20.04. There are some notes about how to manually instal more programs. You can simply run:
-
-```bash
-./ubuntu
-```
-
 
 ## overview of files
 
@@ -38,7 +29,7 @@ Toss it into a file called `.extra` which you do not commit to this repo and jus
 * `install-deps.sh` - random apps i need installed
 * `.brew` - run on a fresh osx machine
 * `.brew-cask` - run on a fresh osx machine, installs apps
-* `.ubuntu` - run on a fresh ubuntu machine
+* `.apt` - run on a fresh debian machine
 
 #### git
 * `.git`
