@@ -38,7 +38,7 @@ alias ip="curl ipinfo.io/ip"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # Trim new lines and copy to clipboard
-alias trimcopy="tr -d '\n' | pbcopy"
+alias trcopy="tr -d '\n' | pbcopy"
 
 # Copy current dir path
 alias pwdcopy="pwd | tr -d '\n' | pbcopy"
@@ -67,7 +67,7 @@ alias gst="git st"
 alias gd="git diff"
 alias gs="git s"
 alias gdf="git df"
-alias gcdiff="git difftool --extcmd icdiff"
+alias gic="git icdiff"
 alias gl="git l"
 alias glg="git lg"
 alias ga="git add"
