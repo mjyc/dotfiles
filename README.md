@@ -3,20 +3,21 @@
 Most files are originally from [Paul's dotfiles](https://github.com/paulirish/dotfiles).
 But, I'm quite proud of my [ROS](http://www.ros.org/about-ros/)-[prompt](https://github.com/mjyc/dotfiles/blob/master/.bash_prompt#L64-L77) :D
 
-## install the necessary apps
+## Installation
 
-Run `install-deps.sh`
+1. Run `install-deps.sh`
+2. Install OS-specific installation scripts, e.g., `./brew.sh` or `./apt.sh`
 
-## private config
+## Private config
 
 Toss it into a file called `.extra` which you do not commit to this repo and just keep in your `~/`
 
-## overview of files
+## Overview of files
 
-####  Automatic config
+#### Automatic config
 * `.vimrc`, `.vim` - vim config
 
-#### shell environment
+#### Shell environment
 * `.aliases`
 * `.bash_profile`
 * `.bash_prompt`
@@ -25,13 +26,13 @@ Toss it into a file called `.extra` which you do not commit to this repo and jus
 * `.functions`
 * `.extra` - not included, explained above
 
-#### manual run
+#### Manual run
 * `install-deps.sh` - random apps i need installed
 * `.brew` - run on a fresh osx machine
 * `.brew-cask` - run on a fresh osx machine, installs apps
 * `.apt` - run on a fresh debian machine
 
-#### git
+#### Git
 * `.git`
 * `.gitattributes`
 * `.gitconfig`
