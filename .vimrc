@@ -110,14 +110,6 @@ map <leader>e :vsp<cr>
 " Search
 nmap <silent> kl :nohlsearch<CR>
 
-" Tab
-" nnoremap <leader>n :tabprevious<CR>
-" nnoremap <leader>p :tabnext<CR>
-" map <S-h> :tabprevious<CR>
-" map <S-l> :tabnext<CR>
-" nnoremap <leader>t :tabnew<CR>
-" nnoremap <leader>d :tabclose<CR>
-
 " Buffer
 map <S-k> :bp<CR>
 map <S-j> :bn<CR>
