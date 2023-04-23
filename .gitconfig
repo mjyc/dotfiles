@@ -10,7 +10,8 @@
 	p = push
 	c = commit -am
 	s = status -s
-	df = diff --color --color-words --abbrev
+	d = diff --color --color-words --abbrev
+	df = icdiff
 	l = log --oneline -n 15
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 [core]
