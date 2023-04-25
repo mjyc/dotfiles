@@ -38,7 +38,7 @@ fi
 
 # Only show username/host if not default
 function usernamehost() {
-	if [ $USER != "$default_username" ]; then
+	if [[ $USER != "$default_username" ]]; then
 		echo "${MAGENTA}$USER ${WHITE}at ${ORANGE}$HOSTNAME $WHITEin ";
 	else
 		echo "${ORANGE}$HOSTNAME $WHITEin ";
@@ -61,13 +61,13 @@ function git_info() {
 # To display ROS info (http://wiki.ros.org/ROS/Introduction)
 # defind a like below in ~/.extra and set $ROSINFO to true
 function ros_info() {
-  if [ "$ROS_MASTER_URI" != "http://$ROS_IP:11311" ]; then
+  if [[ "$ROS_MASTER_URI" != "http://$ROS_IP:11311" ]]; then
     ROSMASTER=$ROS_MASTER_URI
     echo " "${WHITE}using ${PURPLE}$ROSMASTER
   fi
 }
 
-if [ "$PROMPT_ROS" = true ]; then
+if [[ "$PROMPT_ROS" = true ]]; then
 	PS1="\[\e]2;$PWD\[\a\]\[\e]1;\]$(basename "$(dirname "$PWD")")/\W\[\a\]${BOLD}\$(usernamehost)\[$GREEN\]\w\$(git_info)\$(ros_info)\[$WHITE\]\n\$ \[$RESET\]"
 else
 	PS1="\[\e]2;$PWD\[\a\]\[\e]1;\]$(basename "$(dirname "$PWD")")/\W\[\a\]${BOLD}\$(usernamehost)\[$GREEN\]\w\$(git_info)\[$WHITE\]\n\$ \[$RESET\]"
