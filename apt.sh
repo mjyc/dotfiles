@@ -6,10 +6,11 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until this script has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+export DEBIAN_FRONTEND=noninteractive
 sudo apt update
 
 # Essentials
-sudo apt install -y openssh-server net-tools curl git vim trash-cli tmux xclip
+sudo apt install -y --no-install-recommends openssh-server net-tools curl git vim trash-cli tmux xclip
 
 # Dev tools
-sudo apt install -y fzf ripgrep fd-find exa
+sudo apt install -y --no-install-recommends fzf ripgrep fd-find exa

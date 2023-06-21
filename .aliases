@@ -75,8 +75,7 @@ alias ga.="git add ."
 alias gcim="git ci -m"
 alias gcia="git ci --amend"
 alias gciaa="git ci --amend -a"
-alias gciam="git ci -am"
-alias gp="git p"
+# alias gciam="git ci -am"  # instead, use "git c:
 
 # trash-put aliases
 alias trash-vimswp="trash-put ~/.vim/swaps && mkdir ~/.vim/swaps"

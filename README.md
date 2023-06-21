@@ -5,8 +5,9 @@ But, I'm quite proud of my [ROS](http://www.ros.org/about-ros/)-[prompt](https:/
 
 ## Installation
 
-1. Run `install-deps.sh`
-2. Install OS-specific installation scripts, e.g., `./brew.sh` or `./apt.sh`
+```bash
+git clone --recurse-submodules https://github.com/mjyc/dotfiles.git ~/dotfiles && cd ~/dotfiles && ./install.sh
+```
 
 ## Private config
 
@@ -15,6 +16,9 @@ Toss it into a file called `.extra` which you do not commit to this repo and jus
 ## Overview of files
 
 #### Automatic config
+* `.inputrc` - readline config
+* `.screenrc` - screen config
+* `.tmux.conf`, `.tmux` - tmux config
 * `.vimrc`, `.vim` - vim config
 
 #### Shell environment
@@ -23,25 +27,16 @@ Toss it into a file called `.extra` which you do not commit to this repo and jus
 * `.bash_prompt`
 * `.bashrc`
 * `.exports`
-* `.functions`
 * `.extra` - not included, explained above
+* `.zprofile`
+* `.zshrc`
 
 #### Manual run
-* `install-deps.sh` - random apps i need installed
 * `.brew` - run on a fresh osx machine
 * `.brew-cask` - run on a fresh osx machine, installs apps
 * `.apt` - run on a fresh debian machine
 
 #### Git
 * `.git`
-* `.gitattributes`
 * `.gitconfig`
 * `.gitignore`
-
-## Installation
-
-```bash
-git clone https://github.com/mjyc/dotfiles.git && cd dotfiles && ./sync.sh
-```
-
-To update later on, just run the sync again.
