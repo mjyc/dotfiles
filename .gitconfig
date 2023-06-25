@@ -32,6 +32,10 @@
 	added = yellow
 	changed = green
 	untracked = cyan
+[diff]
+	colorMoved = zebra
+[fetch]
+	prune = true
 [help]
 	autocorrect = 1
 [icdiff]
@@ -40,6 +44,7 @@
 	log = true
 [push]
 	default = simple
+	autoSetupRemote = true
 [url "git@github.com:"]
 	insteadOf = "gh:"
 	pushInsteadOf = "github:"
