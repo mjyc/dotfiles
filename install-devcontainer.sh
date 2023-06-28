@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ "$OSTYPE" =~ ^linux ]]; then
-	sudo apt install -y vim
+	sudo apt install -y vim icdiff
 fi
 
 # Sync dotfiles
