@@ -5,12 +5,12 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
 fi
 
 # Sync dotfiles
-for file in ~/.exports ~/.inputrc ~/.vimrc;
-	do cp "$file" ~/;
+for file in .exports .inputrc .vimrc;
+	do cp "$file" ~/
 done
 # Add aliases
 for alias in 'alias g="git"' 'alias v="vim"';
-	do echo "$alias" >> .bashrc
+	do echo "$alias" >> ~/.bashrc
 done
 
 cat <<- EOF > ~/.gitignore
