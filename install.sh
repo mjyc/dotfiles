@@ -6,4 +6,4 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 else
   ./apt.sh
 fi
-./sync.sh
+./sync.sh -f
