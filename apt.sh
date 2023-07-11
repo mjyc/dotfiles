@@ -10,7 +10,7 @@ export DEBIAN_FRONTEND=noninteractive
 sudo apt update
 
 # Essentials
-sudo apt install -y --no-install-recommends openssh-server net-tools curl git vim trash-cli tmux xclip
+sudo apt install -y --no-install-recommends openssh-server net-tools curl git vim trash-cli tmux xclip icdiff
 
 # Dev tools
 sudo apt install -y --no-install-recommends fzf ripgrep fd-find exa
