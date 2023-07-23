@@ -34,10 +34,10 @@ echo 'alias gau="g add -u"' >> ~/.bashrc
 echo 'alias ga.="g add ."' >> ~/.bashrc
 echo 'alias gcim="g ci -m"' >> ~/.bashrc
 echo 'alias gcia="g ci --amend"' >> ~/.bashrc
-echo 'alias gciaa="g ci -a --amend' >> ~/.bashrc"
+echo 'alias gciaa="g ci -a --amend"' >> ~/.bashrc
 
 # Create .gitignore
-cat <<- EOF > ~/.gitignore
+cat << EOF >> ~/.gitignore
 .DS_Store
 Desktop.ini
 EOF
