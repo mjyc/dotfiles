@@ -3,7 +3,7 @@
 # Install dev tools
 if [[ "$OSTYPE" =~ ^linux ]]; then
 	export DEBIAN_FRONTEND=noninteractive
-	sudo apt-update && sudo apt install -y --no-install-recommends vim icdiff
+	sudo apt update && sudo apt install -y --no-install-recommends vim icdiff
 fi
 
 # Sync dotfiles
