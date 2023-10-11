@@ -7,8 +7,11 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
 fi
 
 # Sync dotfiles
-for file in .exports .inputrc .vimrc;
+for file in .exports .inputrc .vimrc .tmux.conf;
 	do cp "$file" ~/
+done
+for folders in .vim .tmux;
+	do cp -r "$folders" ~/
 done
 
 # Add aliases
