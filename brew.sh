@@ -10,7 +10,7 @@ brew upgrade
 # http://www.topbug.net/blog/2013/04/14/install-and-use-gnu-command-line-tools-in-mac-os-x/
 # brew install vim  # use system vim
 # brew install git  # use system git
-brew install z
+brew install zoxide
 brew install tmux
 brew install trash-cli
 brew install icdiff
