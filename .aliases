@@ -34,8 +34,8 @@ else
 fi
 
 # IP addresses
-alias ip="curl ipinfo.io/ip"
-alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+alias myip="curl ipinfo.io/ip"
+alias myips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # Trim new lines and copy to clipboard
 alias trcopy="tr -d '\n' | pbcopy"
