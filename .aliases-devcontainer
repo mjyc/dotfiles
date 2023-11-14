@@ -1,0 +1,23 @@
+alias g="git"
+alias v="vim"
+alias fd="fdfind"
+
+# ls aliases
+alias ls="ls --color=auto"
+alias l="ls -F1"
+alias la="ls -F1a"
+alias ll="ls -l"
+alias lla="ll -a"
+alias llt="ll -t"
+# git aliases
+alias gst="g st"
+alias gbr="g br"
+alias gd="g d"
+alias gdf="g df"
+alias gl="g l"
+alias glg="g lg"
+alias gau="g add -u"
+alias ga.="g add ."
+alias gcim="g ci -m"
+alias gcia="g ci --amend"
+alias gciaa="g ci -a --amend"
