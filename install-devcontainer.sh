@@ -23,6 +23,9 @@ echo 'for file in ~/.{exports,aliases-devcontainer}; do
 done
 unset file' >> ~/.bashrc
 
+# Copy .gitconfig
+cp "${SCRIPT_DIR}/$file" ~/.gitconfig-devcontainer
+
 # Create .gitignore
 cat << EOF >> ~/.gitignore
 .DS_Store
