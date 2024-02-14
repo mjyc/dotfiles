@@ -1,5 +1,7 @@
 #!/bin/bash
 
+SCRIPT_DIR=$(dirname "$(realpath "$0")")
+
 # Install dev tools
 if [[ "$OSTYPE" =~ ^linux ]]; then
 	export DEBIAN_FRONTEND=noninteractive
@@ -8,11 +10,11 @@ fi
 
 # Sync dotfiles
 for file in .exports .aliases-devcontainer .inputrc .vimrc .tmux.conf;
-	do cp "$file" ~/
+	do cp "${SCRIPT_DIR}/$file" ~/
 done
 unset file
 for folder in .vim .tmux;
-	do cp -r "$folder" ~/
+	do cp -r "${SCRIPT_DIR}/$folder" ~/
 done
 unset folder
 
