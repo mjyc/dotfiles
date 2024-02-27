@@ -10,7 +10,8 @@ export DEBIAN_FRONTEND=noninteractive
 sudo apt update
 
 # Essentials
-sudo apt install -y --no-install-recommends openssh-server net-tools curl git vim zoxide trash-cli tmux xclip icdiff
+sudo apt install -y --no-install-recommends openssh-server net-tools curl git vim trash-cli tmux xclip icdiff
+# TODO: scriptize "zoxide" installation
 
 # Dev tools
 sudo apt install -y --no-install-recommends fzf ripgrep fd-find exa
