@@ -1,0 +1,46 @@
+[alias]
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    up = pull
+    p = push
+    c = commit -am
+    s = status -s
+    d = diff --color --color-words --abbrev
+    df = icdiff
+    l = log --oneline -n 15
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+[core]
+    excludesfile = ~/.gitignore
+    attributesfile = ~/.gitattributes
+[color]
+    ui = always
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[diff]
+    colorMoved = zebra
+[fetch]
+    prune = true
+[help]
+    autocorrect = 1
+[icdiff]
+    options = --highlight --line-numbers
+[merge]
+    log = true
+[push]
+    default = simple
+    autoSetupRemote = true
+[pull]
+    rebase = false

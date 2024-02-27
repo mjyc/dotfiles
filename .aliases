@@ -33,9 +33,26 @@ else
 	fi
 fi
 
-# IP addresses
-alias myip="curl ipinfo.io/ip"
-alias myips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+# Hide/show all desktop icons (useful when presenting)
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+	alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+	alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+fi
+
+# Interactively confirm copy
+alias cp='cp -ip'
+
+# Interactively confirm move
+alias mv='mv -i'
+
+# Interactively confirm remove
+alias rm='rm -i'
+
+# File size
+alias fs="stat -f \"%z bytes\""
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
 # Trim new lines and copy to clipboard
 alias trcopy="tr -d '\n' | pbcopy"
@@ -43,17 +60,9 @@ alias trcopy="tr -d '\n' | pbcopy"
 # Copy current dir path
 alias pwdcopy="pwd | tr -d '\n' | pbcopy"
 
-# Recursively delete `.DS_Store` files
-alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
-
-# File size
-alias fs="stat -f \"%z bytes\""
-
-# Hide/show all desktop icons (useful when presenting)
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-	alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-	alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-fi
+# Print ip addresses
+alias myip="curl ipinfo.io/ip"
+alias myips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # ls aliases
 alias l="ls -F1"
@@ -76,6 +85,3 @@ alias gcim="git ci -m"
 alias gcia="git ci --amend"
 alias gciaa="git ci --amend -a"
 # alias gciam="git ci -am"  # instead, use "git c:
-
-# trash-put aliases
-alias trash-vimswp="trash-put ~/.vim/swaps && mkdir ~/.vim/swaps"
