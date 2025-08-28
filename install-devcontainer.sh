@@ -9,25 +9,16 @@ if [[ "$OSTYPE" =~ ^linux ]]; then
 fi
 
 # Sync dotfiles
-for file in .exports .aliases-devcontainer .inputrc .vimrc .tmux.conf;
+for file in .exports .gitignore .inputrc .vimrc .tmux.conf;
 	do cp "${SCRIPT_DIR}/$file" ~/
 done
 unset file
+cp "${SCRIPT_DIR}/.aliases-devcontainer" ~/.aliases
 for folder in .vim .tmux;
 	do cp -r "${SCRIPT_DIR}/$folder" ~/
 done
 unset folder
 
-echo 'for file in ~/.{exports,aliases-devcontainer}; do
-    [ -r "$file" ] && source "$file"
-done
-unset file' >> ~/.bashrc
+echo 'for file in ~/.{extra,exports,aliases}; do [ -r "$file" ] && source "$file"; done; unset file' >> ~/.bashrc
 
-# Copy .gitconfig
-cp "${SCRIPT_DIR}/$file" ~/.gitconfig-devcontainer
-
-# Create .gitignore
-cat << EOF >> ~/.gitignore
-.DS_Store
-Desktop.ini
-EOF
+source ~/.bashrc
