@@ -15,7 +15,7 @@ brew install tmux
 brew install trash-cli
 brew install icdiff
 brew install fzf
-brew install rigrep
+brew install ripgrep
 brew install fd
 
 # Remove outdated versions from the cellar
