@@ -1,51 +1,82 @@
-## SMARTER TAB-COMPLETION (Readline bindings) ##
+## ============================================================
+## SMARTER TAB COMPLETION & COMMAND HISTORY (Readline / Bash)
+## ============================================================
 
-# Perform file completion in a case insensitive fashion
+## --- Completion behavior ------------------------------------
+
+# Perform filename and command completion in a case-insensitive way
+# Example: `cd Doc<Tab>` → `Documents`
 set completion-ignore-case on
 
-# Treat hyphens and underscores as equivalent
+# Treat hyphens (-) and underscores (_) as equivalent during completion
+# Example: `git-check<Tab>` can match `git_check`
 set completion-map-case on
 
-# Display matches for ambiguous patterns at first tab press
+# Show all possible matches immediately when completion is ambiguous
+# (instead of requiring a second Tab)
 set show-all-if-ambiguous on
 
-# Immediately add a Treatailing slash when autocompleting symlinks to directories
+# Append a trailing slash when completing symlinked directories
+# Helps visually distinguish dirs from files
 set mark-symlinked-directories on
 
-# Use the text that has already been typed as the prefix for searching through
-# commands (basically more intelligent Up/Down behavior)
-"\e[A": history-search-backward
-"\e[B": history-search-forward
-
-# Do not autocomplete hidden files unless the pattern explicitly begins with a dot
+# Do not include hidden files (dotfiles) in completion results
+# unless the user explicitly types a leading "."
 set match-hidden-files off
 
-# Show all autocomplete results at once
+# Display all completion candidates at once instead of paging
 set page-completions off
 
-# If there are more than 200 possible completions for a word, ask to show them all
+# If more than this many matches exist, ask before showing them
+# Prevents accidental spam on large directories
 set completion-query-items 200
 
-# Show extra file information when completing, like `ls -F` does
+# Show file type indicators during completion (similar to `ls -F`)
+# Examples: `/` for dirs, `*` for executables
 set visible-stats on
 
-# Be more intelligent when autocompleting by also looking at the text after
-# the cursor. For example, when the current line is "cd ~/src/mozil", and
-# the cursor is on the "z", pressing Tab will not autocomplete it to "cd
-# ~/src/mozillail", but to "cd ~/src/mozilla". (This is supported by the
-# Readline used by Bash 4.)
+# Prevent duplicate text when completing in the middle of a word
+# Example:
+#   Input:  cd ~/src/mozil|la
+#   Result: cd ~/src/mozilla
+# Instead of incorrectly duplicating text
 set skip-completed-text on
 
-# Allow UTF-8 input and output, instead of showing stuff like $'\0123\0456'
+
+## --- Command history navigation -----------------------------
+
+# Search backward through history for commands matching the current prefix
+# Example:
+#   Type:   git
+#   Press:  ↑
+#   Result: cycles through previous `git ...` commands
+"\e[A": history-search-backward
+
+# Search forward through history using the same prefix logic
+"\e[B": history-search-forward
+
+
+## --- UTF-8 / Unicode handling -------------------------------
+
+# Allow direct UTF-8 input/output (no escaping like $'\0123')
 set input-meta on
 set output-meta on
 set convert-meta off
 
-# Ctrl + right-arrow/left-arrow to move between words
-"\e[1;5C": forward-word
+
+## --- Cursor movement & word editing -------------------------
+## These bindings make terminal navigation behave more like
+## modern editors (VS Code, IntelliJ, macOS text fields)
+
+# Ctrl + ← / → : move by word (shell-level word navigation)
 "\e[1;5D": backward-word
-# Alt/Meta + right-arrow/left-arrow to move between words
-"\e[1;3C": forward-word
+"\e[1;5C": forward-word
+
+# Alt/Option + ← / → : also move by word
+# (useful when Ctrl is reserved by terminal or multiplexer)
 "\e[1;3D": backward-word
-# Use Alt/Meta + Delete to delete the preceding word
+"\e[1;3C": forward-word
+
+# Alt/Option + Delete : delete the previous word
+# Matches typical editor behavior (macOS/Linux)
 "\e[3;3~": kill-word
