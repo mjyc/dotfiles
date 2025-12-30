@@ -8,6 +8,8 @@ unset file
 # Init z https://github.com/rupa/z
 if [[ "$OSTYPE" =~ ^darwin ]]; then
 	. $(brew --prefix)/etc/profile.d/z.sh
+else
+	. ~/.local/src/z/z.sh
 fi
 
 # Append to the history file, don't overwrite it
