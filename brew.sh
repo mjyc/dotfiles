@@ -6,10 +6,7 @@ brew update
 # Upgrade any already-installed formulae
 brew upgrade
 
-# Install dev tools
-# http://www.topbug.net/blog/2013/04/14/install-and-use-gnu-command-line-tools-in-mac-os-x/
-# brew install vim  # use system vim
-# brew install git  # use system git
+# Install!
 brew install z
 brew install tmux
 brew install trash-cli
