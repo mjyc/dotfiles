@@ -1,7 +1,6 @@
 alias g="git"
 alias v="vim"
 alias t="tmux"
-alias fd="fdfind"
 
 # ls aliases
 alias ls="ls --color=auto"
