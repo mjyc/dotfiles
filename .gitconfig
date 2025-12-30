@@ -16,7 +16,6 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 [core]
 	excludesfile = ~/.gitignore
-	attributesfile = ~/.gitattributes
 [color]
 	ui = always
 [color "branch"]
