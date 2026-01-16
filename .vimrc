@@ -1,4 +1,6 @@
-"" GENERAL
+" =========================
+"  GENERAL / BOOTSTRAP
+" =========================
 
 " Pathogen
 filetype off
@@ -8,109 +10,120 @@ syntax on
 filetype indent plugin on
 
 
-" OSX
-if has ('macunix')
-  set mouse=a " Enable mouse
-endif
+" =========================
+"  PLUGINS / PACKAGE SETTINGS
+" =========================
 
-
-" Package settings
 " ctrlp
-let g:ctrlp_custom_ignore='node_modules'
-let g:ctrlp_dotfiles=0
+let g:ctrlp_custom_ignore = 'node_modules'
+let g:ctrlp_dotfiles = 0
+
 " nerdtree
-map <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
+
 " vim-airline
-let g:airline#extensions#tabline#enabled=1
-let g:airline_theme='base16_ashes'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'base16_ashes'
+let g:airline_symbols_ascii = 1
+let g:airline_powerline_fonts = 0
+
 " vim-multiple-cursors
-let g:multi_cursor_exit_from_visual_mode=0
-let g:multi_cursor_exit_from_insert_mode=0
+let g:multi_cursor_exit_from_visual_mode = 0
+let g:multi_cursor_exit_from_insert_mode = 0
+
 " vim-tmux-navigator
-let g:tmux_navigator_no_mappings=1
-nnoremap <silent> <Esc>h :TmuxNavigateLeft<cr>
-nnoremap <silent> <Esc>j :TmuxNavigateDown<cr>
-nnoremap <silent> <Esc>k :TmuxNavigateUp<cr>
-nnoremap <silent> <Esc>l :TmuxNavigateRight<cr>
-nnoremap <silent> <Esc>\ :TmuxNavigatePrevious<cr>
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <Esc>h :TmuxNavigateLeft<CR>
+nnoremap <silent> <Esc>j :TmuxNavigateDown<CR>
+nnoremap <silent> <Esc>k :TmuxNavigateUp<CR>
+nnoremap <silent> <Esc>l :TmuxNavigateRight<CR>
+nnoremap <silent> <Esc>\ :TmuxNavigatePrevious<CR>
 
 
-" Local directory settings
+" =========================
+"  LOCAL DIRECTORIES
+" =========================
+
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 set undodir=~/.vim/undo
+set undofile
 
 
-" Stuff
-set autochdir
-set autoindent " Always set autoindenting on
-set backspace=indent,eol,start " Allow backspacing over everything in insert mode
+" =========================
+"  EDITING / UI / BEHAVIOR
+" =========================
+
+set autochdir                  " Auto-change cwd to current file
+set autoindent                 " Keep indentation from previous line
+set backspace=indent,eol,start " Allow backspace over everything in insert mode
+set copyindent                 " Copy indentation from previous line
+set cursorline                 " Highlight current line
+set foldlevel=99               " Open all folds by default
+set foldmethod=indent          " Fold based on indentation
+set formatoptions-=cro         " Disable auto comment insertion on Enter/o/O
+set hidden                     " Allow buffer switching without saving
+set hlsearch                   " Highlight search matches
+set ignorecase                 " Case-insensitive search by default
+set incsearch                  " Show matches while typing search
+set laststatus=2               " Always show status line
+set modeline                   " Enable modelines in files
+set mouse=a                    " Enable mouse support in all modes
+set nowrap                     " Do not wrap long lines
+set number                     " Show line numbers
+set ruler                      " Show cursor position
+set shiftround                 " Round indent to multiple of shiftwidth
+set shiftwidth=4               " Indent size
+set showmatch                  " Briefly jump to matching bracket
+set smartcase                  " Case-sensitive if search has uppercase
+set tabstop=4                  " Tab width
+set title                      " Show filename in terminal title
+set ttymouse=sgr               " Mouse support in terminal Vim
+set wildmode=longest,list,full " Command-line completion behavior
+
+" Clipboard
 if has('unnamedplus')
-  set clipboard+=unnamedplus " make default copy and paste to use clipboard
+  set clipboard+=unnamedplus
 else
-  set clipboard=unnamed " Using mouse 3rd button click
+  set clipboard=unnamed
 endif
-set copyindent " Copy the previous indentation on autoindenting
-set cursorline " Highlight current line
-" set diffopt=filler " Add vertical spaces to keep right and left aligned
-" set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
-set foldlevel=99
-set foldmethod=indent
-set formatoptions-=cro
-set hidden " Hides buffers instead of closing them
-set hlsearch " Highlight search terms
-set ignorecase " Ignore case when searching
-set incsearch " Show search matches as you type
-set ls=2 " Allways show status line
-set modeline " Display filename
-set nowrap " Don't wrap lines
-set number " Dusplay line number
-" set paste! " Start with paste mode
-set ruler " Show the cursor position
-set shiftround " Use multiple of shiftwidth when indenting with '<' and '>'
-set shiftwidth=4 " Number of spaces to use for autoindenting
-set showmatch " Set show matching parenthesis
-set showmode " Show the current mode.
-set smartcase " Ignore case if search pattern is all lowercase, case-sensitive otherwise
-" set smarttab " Insert tabs on the start of a line according to shiftwidth, not tabstop
-set tabstop=4 " A tab is four spaces
-set title " Show the filename in the window titlebar.
-set ttymouse=xterm " Set mouse type to xterm.
-set undofile " Persistent Undo.
-" set whichwrap+=<,>,h,l,[,] " Automatically wrap left and right
-set wildmode=longest,list,full " Tab completion
+
+" Visible whitespace (TextMate-like)
+set listchars=tab:▸\ ,eol:¬
+highlight NonText    guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
 
 
+" =========================
+"  KEY BINDINGS
+" =========================
 
-"" KEY BINDINGS
-
-" Typo proofers
+" Typo proofers / convenience
 nnoremap ; :
 nnoremap <C-@> :set paste!<CR>
-" nnoremap <C-@> :set nopaste<CR> " <C-@> == <C-Space>
-command W w
-command Wq wq
+command! W  w
+command! Wq wq
 
 " Sudo write (,W)
-noremap <leader>W :w !sudo tee %<CR>
+nnoremap <leader>W :w !sudo tee %<CR>
 
 " Scrolling
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
-" Split
+" Splits / windows
 map <Tab> <C-w>w
 map - 3<C-W>-
 map = 3<C-W>+
 map 8 3<C-W><
 map 9 3<C-W>>
-map <leader>o :sp<cr>
-map <leader>e :vsp<cr>
+map <leader>o :sp<CR>
+map <leader>e :vsp<CR>
 
 " Search
 nmap <silent> kl :nohlsearch<CR>
 
-" Buffer
+" Buffers
 map <S-k> :bp<CR>
 map <S-j> :bn<CR>
 
@@ -120,24 +133,33 @@ map <C-h> ^
 map <C-j> 10j
 map <C-k> 10k
 
-" Control
+" Insert / escape behavior
 imap kj <Esc>
 map <C-c> <Esc>
 inoremap <silent> <Esc> <Esc>`^
-set timeoutlen=100 ttimeoutlen=1
 
-" Highlight
-" toggle `set list`
-nmap <leader>l :set number!<CR>
-" use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬
-" invisible character colors
-highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59
+set timeoutlen=100    " Time (ms) to wait for mapped key sequences
+set ttimeoutlen=1     " Time (ms) to wait for terminal key codes (Esc responsiveness)
 
-" Linebreak
-noremap <silent> <Leader>w :call ToggleWrap()<CR>
-function ToggleWrap()
+" Toggle line numbers
+nnoremap <leader>l :set number!<CR>
+
+" indent/unindent block (,]) (,[)
+nnoremap <leader>] >i{<CR>
+nnoremap <leader>[ <i{<CR>
+
+" toggle folds (<Space>)
+nnoremap <silent> <space> :exe 'silent! normal! '.((foldclosed('.')>0)? 'zMzx' : 'zc')<CR>
+
+" mark jumping (line + col)
+nnoremap ' `
+
+
+" =========================
+"  FUNCTIONS
+" =========================
+
+function! ToggleWrap()
   if &wrap
     echo 'Wrap OFF'
     setlocal nowrap
@@ -156,46 +178,38 @@ function ToggleWrap()
     map <silent> $ g$
   endif
 endfunction
-:silent call ToggleWrap()
+nnoremap <silent> <Leader>w :call ToggleWrap()<CR>
 
-" Misc
-" indent/unident block (,]) (,[)
-nnoremap <leader>] >i{<CR>
-nnoremap <leader>[ <i{<CR>
-" strip trailing whitespace (,ss)
-function! StripWhitespace ()
-let save_cursor = getpos(".")
-let old_query = getreg('/')
-:%s/\s\+$//e
-call setpos('.', save_cursor)
-call setreg('/', old_query)
+" Start with wrap toggled on/off
+silent! call ToggleWrap()
+
+function! StripWhitespace()
+  let save_cursor = getpos(".")
+  let old_query = getreg('/')
+  %s/\s\+$//e
+  call setpos('.', save_cursor)
+  call setreg('/', old_query)
 endfunction
-noremap <leader>ss :call StripWhitespace ()<CR>
-" toggle folds (<Space>)
-nnoremap <silent> <space> :exe 'silent! normal! '.((foldclosed('.')>0)? 'zMzx' : 'zc')<CR>
-" mark jumping (line + col)
-nnoremap ' `
+nnoremap <leader>ss :call StripWhitespace()<CR>
 
 
-
-"" FILE SETTINGS
+" =========================
+"  AUTOCMDS / FILE SETTINGS
+" =========================
 
 " Detect file changes
 autocmd FileChangedShell * echo "Warning: File changed on disk"
 
-" FileType settings
-if has('autocmd')  " Only do this part when compiled with support for autocommands
-  " Enable file type detection
+if has('autocmd')
   filetype on
-  autocmd FileType cmake setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType cmake set commentstring=#\ %s
-  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType cmake       setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType cmake       setlocal commentstring=#\ %s
+  autocmd FileType html        setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType javascript  setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType json        setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType python      setlocal ts=4 sts=4 sw=4 expandtab
   autocmd BufRead,BufNewFile *.launch setfiletype roslaunch
 endif
 
 " Ignore syntax highlighting for Markdown
-au BufRead,BufNewFile *.md set filetype=text
-
+autocmd BufRead,BufNewFile *.md set filetype=text
