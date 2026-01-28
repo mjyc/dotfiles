@@ -1,15 +1,15 @@
-# Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases, and ~/.functions
+# Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases
 # ~/.extra can be used for settings you don’t want to commit
-for file in ~/.{extra,bash_prompt,exports,aliases,functions}; do
-	[ -r "$file" ] && source "$file"
+for file in ~/.{extra,bash_prompt,exports,aliases}; do
+    [ -r "$file" ] && source "$file"
 done
 unset file
 
 # Init z https://github.com/rupa/z
 if [[ "$OSTYPE" =~ ^darwin ]]; then
-	. $(brew --prefix)/etc/profile.d/z.sh
+    . $(brew --prefix)/etc/profile.d/z.sh
 else
-	. ~/.local/src/z/z.sh
+    . ~/.local/src/z/z.sh
 fi
 
 # Append to the history file, don't overwrite it
