@@ -20,6 +20,7 @@ done
 unset file
 
 cp -f "${SCRIPT_DIR}/.aliases-devcontainer" ~/.aliases
+cp -f "${SCRIPT_DIR}/.gitconfig-devcontainer" ~/.gitconfig
 
 for folder in .vim .tmux; do
   rm -rf ~/"${folder}"
@@ -27,9 +28,11 @@ for folder in .vim .tmux; do
 done
 unset folder
 
-# Ensure bashrc sources your dotfiles (idempotent)
-LINE='for file in ~/.{extra,exports,aliases}; do [ -r "$file" ] && source "$file"; done; unset file'
-grep -Fqx "$LINE" ~/.bashrc 2>/dev/null || echo "$LINE" >> ~/.bashrc
+# Create .bashrc (backup existing if present)
+if [ -f ~/.bashrc ]; then
+  cp ~/.bashrc ~/.bashrc.backup
+fi
 
-# Sourcing here only affects this script process, but keep it for convenience
-[ -r ~/.bashrc ] && source ~/.bashrc
+cat > ~/.bashrc << 'EOF'
+[ -n "$PS1" ] && source ~/.bash_profile
+EOF
