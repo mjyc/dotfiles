@@ -1,19 +1,7 @@
-#!/bin/sh
-
-# Make sure we're using the latest Homebrew
+#!/bin/bash
 brew update
-
-# Upgrade any already-installed formulae
 brew upgrade
 
-# Install!
-brew install z
-brew install tmux
-brew install trash-cli
-brew install icdiff
-brew install fzf
-brew install ripgrep
-brew install fd
+brew install z tmux trash-cli icdiff fzf ripgrep fd
 
-# Remove outdated versions from the cellar
 brew cleanup

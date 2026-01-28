@@ -1,17 +1,23 @@
 #!/bin/bash
 cd "$(dirname "$0")"
 git pull
-function doIt() {
-	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "README.md" --exclude "sync.sh" --exclude "install.sh" --exclude "install-devcontainer.sh" --exclude "brew.sh" --exclude "brew-cask.sh" --exclude "apt.sh" --exclude ".gitmodules" -av . ~
+
+rsync_dotfiles() {
+	rsync --exclude ".git/" \
+	      --exclude ".DS_Store" \
+	      --exclude "README.md" \
+	      --exclude "*.sh" \
+	      --exclude "*-devcontainer*" \
+	      --exclude ".gitmodules" \
+	      -av . ~
 }
-if [ "$1" == "--force" -o "$1" == "-f" ]; then
-	doIt
+
+if [[ "$1" == "-f" || "$1" == "--force" ]]; then
+	rsync_dotfiles
 else
 	read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
 	echo
-	if [[ $REPLY =~ ^[Yy]$ ]]; then
-		doIt
-	fi
+	[[ $REPLY =~ ^[Yy]$ ]] && rsync_dotfiles
 fi
-unset doIt
+
 source ~/.bash_profile
