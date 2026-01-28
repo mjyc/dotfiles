@@ -1,3 +1,4 @@
+# shortcuts
 alias g="git"
 alias v="vim"
 alias t="tmux"
