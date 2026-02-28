@@ -14,7 +14,7 @@ if command -v fdfind >/dev/null 2>&1 && ! command -v fd >/dev/null 2>&1; then
 fi
 
 # Sync dotfiles
-for file in .exports .inputrc .vimrc .tmux.conf; do
+for file in  .bash_profile .bash_prompt .exports .inputrc .vimrc .tmux.conf; do
   cp -f "${SCRIPT_DIR}/${file}" ~/
 done
 unset file
@@ -22,7 +22,7 @@ unset file
 cp -f "${SCRIPT_DIR}/.aliases-devcontainer" ~/.aliases
 cp -f "${SCRIPT_DIR}/.gitconfig-devcontainer" ~/.gitconfig
 
-for folder in .vim .tmux; do
+for folder in .vim; do
   rm -rf ~/"${folder}"
   cp -a "${SCRIPT_DIR}/${folder}" ~/
 done
