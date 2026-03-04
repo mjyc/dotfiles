@@ -1,5 +1,11 @@
 #!/bin/bash
-set -euo pipefail
+set -euox pipefail
+
+# Install z
+if [ ! -d ~/.local/src/ ]; then mkdir -p ~/.local/src/; fi;
+cd ~/.local/src/
+git clone https://github.com/rupa/z.git
+chmod +x ~/.local/src/z/z.sh
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "$(realpath -- "$0")")" && pwd)"
 
