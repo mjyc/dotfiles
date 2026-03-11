@@ -2,6 +2,6 @@
 brew update
 brew upgrade
 
-brew install z tmux trash-cli icdiff fzf ripgrep fd
+brew install z tmux icdiff fzf
 
 brew cleanup

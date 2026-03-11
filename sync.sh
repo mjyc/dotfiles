@@ -7,7 +7,6 @@ rsync_dotfiles() {
 	      --exclude ".DS_Store" \
 	      --exclude "README.md" \
 	      --exclude "*.sh" \
-	      --exclude "*-devcontainer*" \
 	      --exclude ".gitmodules" \
 	      -av . ~
 }
